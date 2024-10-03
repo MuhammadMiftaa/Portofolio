@@ -22,6 +22,10 @@ const config: Config = {
         "color-3": "hsl(var(--color-3))",
         "color-4": "hsl(var(--color-4))",
         "color-5": "hsl(var(--color-5))",
+        "primary": "#232A2F",
+        "secondary": "#18A4E0",
+        "white-custom": "#FAF8F0",
+        "gray-custom": "#D3DDE6"
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -40,6 +44,14 @@ const config: Config = {
             "background-position": "200%",
           },
         },
+      },
+      fontFamily: {
+        urbanist: ["Urbanist", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        londrina: ["Londrina", "sans-serif"],
+        lora: ["Lora", "sans-serif"],
+        quicksand: ["Quicksand", "sans-serif"],
       },
     },
   },
