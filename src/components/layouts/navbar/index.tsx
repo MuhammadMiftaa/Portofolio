@@ -28,5 +28,10 @@ export default function NavbarLayout() {
       ),
     },
   ];
-  return <FloatingNav className="bg-secondary font-poppins backdrop-blur-2xl" navItems={navItems} />;
+  return (
+    <FloatingNav
+      className="from-color-1 to-color-2 bg-gradient-to-r font-poppins backdrop-blur-2xl"
+      navItems={navItems}
+    />
+  );
 }
