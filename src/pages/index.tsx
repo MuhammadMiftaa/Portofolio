@@ -3,6 +3,7 @@
 import HomeLayout from "@/components/layouts/home";
 import NavbarLayout from "@/components/layouts/navbar";
 import AboutLayout from "@/components/layouts/about";
+import ExperienceLayout from "@/components/layouts/experience";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <NavbarLayout />
       <HomeLayout />
       <AboutLayout />
+      <ExperienceLayout />
     </div>
   );
 }
