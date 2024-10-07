@@ -38,18 +38,18 @@ export default function AboutLayout() {
           </ShineBorder>
         </GlareCard>
         <div className="relative">
-          <p className="text-white font-urbanist mt-5">
+          <p className="text-white text-lg tracking-wide font-urbanist mt-5">
             I am a Frontend Web Developer with 1 year of experience. I am a
             self-taught developer who is passionate about making the web a
             better place. I have experience working with modern frontend
             technologies like React, NextJS, and TailwindCSS. I am always eager
             to learn new things and improve my skills.
           </p>
-          <button className="font-poppins absolute bottom-5 left-0 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          <button className="font-poppins absolute bottom-5 left-0 inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
             <AnimatedGradientTextWithoutBorder>
               <span
                 className={cn(
-                  `text-lg py-1 font-poppins inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+                  `text-lg font-urbanist inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
                 )}
               >
                 Contact me
@@ -70,8 +70,9 @@ export default function AboutLayout() {
         </AnimatedGradientTextWithoutBorder>
         <div className="relative flex w-[88%] mx-auto flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl after:content-[''] after:bg-gradient-to-r after:from-primary after:from-50% after:to-transparent after:w-32 after:h-32 after:absolute after:left-0 before:content-[''] before:bg-gradient-to-l before:from-primary before:from-50% before:to-transparent before:w-32 before:h-32 before:absolute before:right-0 before:z-10">
           <Marquee pauseOnHover className="[--duration:120s]">
-            {firstRow.map((item) => (
+            {firstRow.map((item, idx) => (
               <figure
+                key={idx}
                 className={cn(
                   "relative w-96 cursor-pointer overflow-hidden rounded-xl border px-7 py-5",
                   "border-gray-500 bg-[#272729] font-poppins"

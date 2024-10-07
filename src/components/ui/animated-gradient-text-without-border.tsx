@@ -12,7 +12,7 @@ export default function AnimatedGradientTextWithoutBorder({
   return (
     <div
       className={cn(
-        "group relative flex max-w-fit flex-row items-center justify-center rounded-2xl px-10 py-1.5 text-sm font-medium transition-shadow duration-500 ease-out [--bg-size:300%]",
+        "group relative flex max-w-fit flex-row items-center justify-center rounded-2xl px-5 py-1.5 text-sm font-medium transition-shadow duration-500 ease-out [--bg-size:300%]",
         className,
       )}
     >
