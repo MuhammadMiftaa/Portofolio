@@ -4,6 +4,7 @@ import HomeLayout from "@/components/layouts/home";
 import NavbarLayout from "@/components/layouts/navbar";
 import AboutLayout from "@/components/layouts/about";
 import ExperienceLayout from "@/components/layouts/experience";
+import ProjectsLayout from "@/components/layouts/projects";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HomeLayout />
       <AboutLayout />
       <ExperienceLayout />
+      <ProjectsLayout />
     </div>
   );
 }

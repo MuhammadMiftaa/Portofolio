@@ -1,12 +1,15 @@
+"use client";
 import AnimatedGradientText from "@/components/ui/animated-gradient-text";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
+import { List } from "flowbite-react";
+import { HiCheckCircle } from "react-icons/hi";
 
 export default function ExperienceLayout() {
   return (
-    <div className="py-20">
+    <div className="py-12">
       <AnimatedGradientText className="ml-36">
         <span
           className={cn(
@@ -29,71 +32,83 @@ export default function ExperienceLayout() {
                   height={100}
                 />
               </div>
-              <div className="font-poppins text-slate-200">
+              <div className="font-urbanist text-slate-200">
                 <h1 className="font-bold text-xl">
                   PT. Ruang Raya Indonesia (Ruangguru)
                 </h1>
                 <h2 className="text-slate-500">Fullstack Golang & AI</h2>
               </div>
             </div>
-            <h3 className="text-slate-500 font-poppins justify-self-stretch mt-2">
+            <h3 className="text-slate-500 font-urbanist justify-self-stretch mt-2">
               Sep 2024 - Dec 2024
             </h3>
           </div>
-          <div className="flex gap-2 mt-4 font-light">
-            <span className="bg-[#272729] font-poppins text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
+          <div className="flex gap-2 mt-4 font-light font-urbanist">
+            <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               HTML&CSS
             </span>
-            <span className="bg-[#272729] font-poppins text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
+            <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               Golang
             </span>
-            <span className="bg-[#272729] font-poppins text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
+            <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               AI
             </span>
-            <span className="bg-[#272729] font-poppins text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
+            <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               Javascript
             </span>
-            <span className="bg-[#272729] font-poppins text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
+            <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               React
             </span>
-            <span className="bg-[#272729] font-poppins text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
+            <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               GORM
             </span>
-            <span className="bg-[#272729] font-poppins text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
+            <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               PostgreSQL
             </span>
           </div>
           <div>
-            <h4 className="text-gray-500 font-bold font-poppins my-5">
+            <h4 className="text-gray-500 font-bold font-urbanist text-lg mt-5 mb-3">
               The responsibilities include:
             </h4>
-            <ul className="text-sm font-light text-gray-300 font-poppins list-disc px-4 leading-6">
-              <li>
+            <List className="text-sm font-light text-gray-300 font-urbanist list-disc leading-6 tracking-wide">
+              <List.Item icon={HiCheckCircle}>
                 Develop web applications using ReactJS, HTML, CSS, and
                 JavaScript, with an understanding of Single Page Applications
                 and responsive design.
-              </li>
-              <li>
+              </List.Item>
+              <List.Item icon={HiCheckCircle}>
                 Implement version control using Git and GitHub, including
                 handling merge requests and managing projects in repositories.
-              </li>
-              <li>
+              </List.Item>
+              <List.Item icon={HiCheckCircle}>
                 Build and manage RESTful APIs with HTTP methods, while
                 understanding response codes and authentication.
-              </li>
-              <li>
+              </List.Item>
+              <List.Item icon={HiCheckCircle}>
                 Use Golang for application development, including CRUD
                 operations, debugging, and integration with PostgreSQL
                 databases.
-              </li>
-              <li>
+              </List.Item>
+              <List.Item icon={HiCheckCircle}>
                 Deploy applications to hosting services like Netlify, Vercel, or
                 GitHub Pages, and understand the production build process.
-              </li>
-            </ul>
+              </List.Item>
+            </List>
           </div>
-          <BorderBeam colorFrom="#FF00AA" colorTo="#00FFF1" size={250} duration={12} delay={9} />
-          <BorderBeam colorFrom="#FF00AA" colorTo="#00FFF1" size={250} duration={12} delay={27} />
+          <BorderBeam
+            colorFrom="#FF00AA"
+            colorTo="#00FFF1"
+            size={250}
+            duration={12}
+            delay={9}
+          />
+          <BorderBeam
+            colorFrom="#FF00AA"
+            colorTo="#00FFF1"
+            size={250}
+            duration={12}
+            delay={27}
+          />
         </div>
       </div>
     </div>
