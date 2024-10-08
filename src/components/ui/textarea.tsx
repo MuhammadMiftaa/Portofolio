@@ -9,7 +9,7 @@ export interface TextareaProps
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
-    const radius = 250; // Mengatur radius efek hover
+    const radius = 400; // Mengatur radius efek hover
     const [visible, setVisible] = React.useState(false);
 
     let mouseX = useMotionValue(0);
