@@ -2,6 +2,7 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import React from "react";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
 import { RiAppsFill } from "react-icons/ri";
+import { FaRegFileCode } from "react-icons/fa";
 
 export default function NavbarLayout() {
   const navItems = [
@@ -14,6 +15,13 @@ export default function NavbarLayout() {
       name: "About",
       link: "/about",
       icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "Experience",
+      link: "/experience",
+      icon: (
+        <FaRegFileCode className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),
     },
     {
       name: "Projects",
