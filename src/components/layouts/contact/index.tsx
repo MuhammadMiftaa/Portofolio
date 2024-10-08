@@ -1,13 +1,16 @@
 import AnimatedGradientTextWithoutBorder from "@/components/ui/animated-gradient-text-without-border";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { LinkPreview } from "@/components/ui/link-preview";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { Popover } from "flowbite-react";
 import React from "react";
+import { RiCodeSSlashFill } from "react-icons/ri";
 
 export default function ContactLayout() {
   return (
-    <div className="h-[50rem] py-16 px-24 w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
+    <div className="h-[50rem] pt-16 pb-14 px-24 w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
       <div className="w-fit mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-transparent">
         <AnimatedGradientTextWithoutBorder className="">
           <span
@@ -83,9 +86,45 @@ export default function ContactLayout() {
             </button>
           </div> */}
       </form>
+      <div className="mt-16 flex justify-between w-full z-10 text-slate-300">
+        <h1 className="font-urbanist italic font-light">
+          Design Inspired by{" "}
+          <Popover content={content} trigger="hover">
+            <span className="font-bold cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-color-1 hover:to-color-2 duration-300 hover:duration-300 text-white">
+              them.
+            </span>
+          </Popover>
+        </h1>
+        <h2 className="font-urbanist font-light">
+          Copyright @ 2024.{" "}
+          <span className="text-white font-bold">Muhammad Mifta</span>
+        </h2>
+      </div>
     </div>
   );
 }
+
+const content = (
+  <div className="text-sm bg-black py-1 px-2">
+    <p className="font-bold font-poppins">
+      <LinkPreview className="text-white" url="https://www.yusufs.me/" imageSrc="/inspired1.png" isStatic={true}>
+        Yusuf Saputra
+      </LinkPreview>
+      ,{" "}
+      <LinkPreview className="text-white"
+        url="https://www.vickyadrii.my.id/"
+        imageSrc="/inspired2.png"
+        isStatic={true}
+      >
+        Vicky Herdiansyah Adri
+      </LinkPreview>
+      , and{" "}
+      <LinkPreview className="text-white" url="https://aafrzl.my.id/" imageSrc="/inspired3.png" isStatic={true}>
+        Afrizal Mufriz Fouji
+      </LinkPreview>
+    </p>
+  </div>
+);
 
 const BottomGradient = () => {
   return (

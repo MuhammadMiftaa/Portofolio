@@ -42,7 +42,7 @@ export default function AboutLayout() {
           }
         });
       })
-      setAverageContributions(totalContributions / 365);
+      setAverageContributions(totalContributions/365);
       
     });
   }, []);
