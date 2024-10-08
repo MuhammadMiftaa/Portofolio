@@ -23,30 +23,40 @@ export default function AboutLayout() {
 
   useEffect(() => {
     FetchGithub().then((res) => {
-      setGithubData(res.data);
-      setTotalContributions(
-        res.data.contributionsCollection.contributionCalendar.totalContributions
+      const githubData = res.data;
+      const totalContributions =
+        githubData.contributionsCollection.contributionCalendar
+          .totalContributions;
+
+      setGithubData(githubData);
+      setTotalContributions(totalContributions);
+
+      // Hitung kontribusi minggu ini
+      const weeks =
+        githubData.contributionsCollection.contributionCalendar.weeks;
+      const lastWeekContributions = weeks[
+        weeks.length - 1
+      ].contributionDays.reduce(
+        (acc: number, curr: any) => acc + curr.contributionCount,
+        0
       );
-      setThisWeekContributions(
-        res.data.contributionsCollection.contributionCalendar.weeks[
-          res.data.contributionsCollection.contributionCalendar.weeks.length - 1
-        ].contributionDays.reduce(
-          (acc: any, curr: any) => acc + curr.contributionCount,
-          0
-        )
-      );
-      res.data.contributionsCollection.contributionCalendar.weeks.forEach((week: any) => {
+      setThisWeekContributions(lastWeekContributions);
+
+      // Hitung kontribusi terbaik (best day)
+      let bestDay = 0;
+      weeks.forEach((week: any) => {
         week.contributionDays.forEach((day: any) => {
-          if (day.contributionCount > bestDayContributions) {
-            setBestDayContributions(day.contributionCount);
+          if (day.contributionCount > bestDay) {
+            bestDay = day.contributionCount;
           }
         });
-      })
-      setAverageContributions(totalContributions/365);
-      
+      });
+      setBestDayContributions(bestDay);
+
+      // Hitung rata-rata kontribusi per hari (asumsi 365 hari)
+      setAverageContributions(totalContributions / 365);
     });
   }, []);
-
 
   return (
     <div className="my-16">
@@ -75,14 +85,82 @@ export default function AboutLayout() {
           </ShineBorder>
         </GlareCard>
         <div className="relative">
-          <p className="text-white text-lg tracking-wide font-urbanist mt-5">
+          <p className="text-white text-lg text-justify tracking-wide font-urbanist mt-5">
             I am a Frontend Web Developer with 1 year of experience. I am a
             self-taught developer who is passionate about making the web a
             better place. I have experience working with modern frontend
             technologies like React, NextJS, and TailwindCSS. I am always eager
             to learn new things and improve my skills.
           </p>
-          <button className="font-poppins absolute bottom-5 left-0 inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          <h1 className="text-slate-400 font-urbanist italic mt-5 mb-3">
+            Technologies I Work With
+          </h1>
+          <div className="flex gap-2 items-center">
+            <div className="rounded-xl overflow-hidden w-10 h-10">
+              <Image
+                className="w-full h-full"
+                src={"/javascript.svg"}
+                alt="javascript-icon"
+                width={100}
+                height={100}
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden w-10 h-10">
+              <Image
+                className="w-full h-full"
+                src={"/typescript.svg"}
+                alt="typescript-icon"
+                width={100}
+                height={100}
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden w-10 h-10">
+              <Image
+                className="w-full h-full"
+                src={"/tailwindcss.svg"}
+                alt="tailwindcss-icon"
+                width={100}
+                height={100}
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden w-10 h-10">
+              <Image
+                className="w-full h-full"
+                src={"/react.svg"}
+                alt="react-icon"
+                width={100}
+                height={100}
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden w-10 h-10">
+              <Image
+                className="w-full h-full"
+                src={"/nextjs.svg"}
+                alt="nextjs-icon"
+                width={100}
+                height={100}
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden w-10 h-10">
+              <Image
+                className="w-full h-full"
+                src={"/postgresql.svg"}
+                alt="postgresql-icon"
+                width={100}
+                height={100}
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden w-10 h-10">
+              <Image
+                className="w-full h-full"
+                src={"/mongodb.svg"}
+                alt="mongodb-icon"
+                width={100}
+                height={100}
+              />
+            </div>
+          </div>
+          {/* <button className="font-poppins absolute bottom-5 right-0 inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
             <AnimatedGradientTextWithoutBorder>
               <span
                 className={cn(
@@ -92,7 +170,7 @@ export default function AboutLayout() {
                 Contact me
               </span>
             </AnimatedGradientTextWithoutBorder>
-          </button>
+          </button> */}
         </div>
       </div>
       <div>
