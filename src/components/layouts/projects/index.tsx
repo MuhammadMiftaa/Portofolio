@@ -1,10 +1,10 @@
 import AnimatedGradientTextWithoutBorder from "@/components/ui/animated-gradient-text-without-border";
 import { BorderBeam } from "@/components/ui/border-beam";
-import Safari from "@/components/ui/safari";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub, FaLink } from "react-icons/fa";
+import { RiCloseLargeFill } from "react-icons/ri";
 
 export default function ProjectsLayout() {
   const data = [
@@ -15,8 +15,8 @@ export default function ProjectsLayout() {
       techStack: ["Typescript", "React", "NextJS", "TailwindCSS", "Firebase"],
       githubLink: "https://github.com/MuhammadMiftaa/JKT48-NextJS",
       url: "https://sanggar-tari.vercel.app",
-      webViewImage: "/jkt48-redesign.png",
-      mobileViewImage: "/jkt48-redesign-mobile.png",
+      webViewImage: "/sanggar-tari-web.png",
+      mobileViewImage: "/sanggar-tari-mobile.jpg",
     },
     {
       title: "Tagih Janji",
@@ -46,8 +46,14 @@ export default function ProjectsLayout() {
       mobileViewImage: "/shopative-mobile.png",
     },
   ];
+
+  const [activeModal, setActiveModal] = useState<boolean>(false);
+  const [activeImage, setActiveImage] = useState<string>("");
+
   return (
-    <div className="py-20">
+    <div
+      className={`py-20 ${activeModal ? "overflow-hidden" : "overflow-auto"}`}
+    >
       <AnimatedGradientTextWithoutBorder className="">
         <span
           className={cn(
@@ -82,19 +88,32 @@ export default function ProjectsLayout() {
             </div>
 
             <div className="absolute top-0 w-full h-[33rem]">
-              <a className="text-white text-3xl bottom-2 right-14 absolute hover:text-color-1 duration-300" href={item.url}>
+              <a
+                className="text-white text-3xl bottom-2 right-14 absolute hover:text-color-1 duration-300"
+                href={item.url}
+              >
                 <FaLink />
               </a>
-              <a className="text-white text-3xl bottom-2 right-[6.5rem] absolute hover:text-color-2 duration-300" href={item.githubLink}>
+              <a
+                className="text-white text-3xl bottom-2 right-[6.5rem] absolute hover:text-color-2 duration-300"
+                href={item.githubLink}
+              >
                 <FaGithub />
               </a>
-              <div className="absolute w-fit bottom-16 right-14 cursor-pointer">
+
+              <div
+                className="absolute w-fit bottom-16 right-14 cursor-pointer"
+                onClick={() => {
+                  setActiveModal(true);
+                  setActiveImage(item.webViewImage);
+                }}
+              >
                 <div className="relative mx-auto border-[#3C3C3D] bg-[#3C3C3D] border-[8px] rounded-t-xl h-[172px] max-w-[301px] ">
                   <div className="rounded-lg overflow-hidden h-[156px] bg-[#3C3C3D]">
                     <Image
                       width={500}
                       height={500}
-                      src="/sanggar-tari.png"
+                      src="/sanggar-tari-web.png"
                       className="h-[156px] w-full rounded-lg"
                       alt=""
                     />
@@ -105,7 +124,13 @@ export default function ProjectsLayout() {
                 </div>
               </div>
 
-              <div className="absolute w-fit left-5 bottom-2 cursor-pointer">
+              <div
+                className="absolute w-fit left-5 bottom-2 cursor-pointer"
+                onClick={() => {
+                  setActiveModal(true);
+                  setActiveImage(item.mobileViewImage);
+                }}
+              >
                 <div className="relative border-[#3C3C3D] bg-[#3C3C3D] border-[7px] rounded-[1rem] h-[300px] w-[150px] shadow-xl">
                   <div className="w-[74px] h-[9px] bg-[#3C3C3D] top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
                   <div className="h-[23px] w-[1.5px] bg-[#3C3C3D] absolute -start-[8px] top-[62px] rounded-s-lg"></div>
@@ -115,12 +140,34 @@ export default function ProjectsLayout() {
                     <Image
                       height={500}
                       width={500}
-                      src="/sanggar-tari.jpg"
-                      className="w-[136px] h-[286px]"
+                      src="/sanggar-tari-mobile.jpg"
+                      className={`w-[136px] h-[286px] duration-300`}
                       alt=""
                     />
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div
+              className={`flex justify-center items-center backdrop-blur-sm fixed inset-0 duration-100 overflow-hidden ${
+                activeModal ? "opacity-100 z-50" : "opacity-0 -z-10"
+              }`}
+            >
+              <Image
+                className={`${
+                  activeModal ? "scale-100" : "scale-0"
+                } h-3/4 object-cover w-auto duration-300 ease-in-out`}
+                src={activeImage}
+                alt="zoom-image"
+                width={500}
+                height={500}
+              />
+              <div
+                className="p-3 text-white absolute top-4 right-4 cursor-pointer "
+                onClick={() => setActiveModal(false)}
+              >
+                <RiCloseLargeFill />
               </div>
             </div>
 
