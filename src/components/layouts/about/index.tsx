@@ -59,24 +59,24 @@ export default function AboutLayout() {
   }, []);
 
   return (
-    <div className="my-16" id="about">
-      <AnimatedGradientText className="ml-36">
+    <div className="my-6 sm:my-10 md:my-16 overflow-hidden w-full" id="about">
+      <AnimatedGradientText className="ml-5 sm:ml-10 md:ml-36 px-8 md:px-10 py-1 md:py-1.5">
         <span
           className={cn(
-            `text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `
+            `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `
           )}
         >
           About me
         </span>
       </AnimatedGradientText>
-      <div className="px-[9.1rem] w-full bg-primary flex gap-20 mt-16">
-        <GlareCard className="flex flex-col items-center justify-center">
+      <div className="mx-5 md:px-[9.1rem] w-full bg-primary flex flex-col md:flex-row gap-5 md:gap-20 mt-16">
+        <GlareCard className="flex flex-col items-center justify-center h-[8.5rem] w-[8.5rem]  md:w-full md:h-full">
           <ShineBorder
             className="relative flex flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
             color={["#00FFF1", "#FF00AA"]}
           >
             <Image
-              className="aspect-square object-cover h-52 w-52 rounded-xl"
+              className="aspect-square object-cover h-28 w-28 md:h-52 md:w-52 rounded-xl"
               src={"/profile-picture.jpg"}
               alt="profile-picture"
               width={800}
@@ -85,17 +85,17 @@ export default function AboutLayout() {
           </ShineBorder>
         </GlareCard>
         <div className="relative">
-          <p className="text-white text-lg text-justify tracking-wide font-urbanist mt-5">
+          <p className="text-white w-[88%] sm:w-[95%] md:w-full text-sm sm:text-base md:text-lg text-justify tracking-wide font-urbanist mt-2 md:mt-5">
             I am a Frontend Web Developer with 1 year of experience. I am a
             self-taught developer who is passionate about making the web a
             better place. I have experience working with modern frontend
             technologies like React, NextJS, and TailwindCSS. I am always eager
             to learn new things and improve my skills.
           </p>
-          <h1 className="text-slate-400 font-urbanist italic mt-5 mb-1.5">
+          <h1 className="text-slate-400 font-urbanist italic mt-2 md:mt-5 mb-1.5 text-sm sm:text-base w-full text-center sm:text-start">
             Technologies I Work With
           </h1>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center w-full justify-center sm:justify-start">
             <div className="rounded-xl overflow-hidden w-10 h-10">
               <Image
                 className="w-full h-full"
