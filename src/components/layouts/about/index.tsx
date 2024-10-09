@@ -263,9 +263,9 @@ export default function AboutLayout() {
         </div>
 
         <div className="flex gap-4">
-          <div className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-fit">
+          {/* <div className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-fit">
             <GithubCalendar username="MuhammadMiftaa" />
-          </div>
+          </div> */}
           <div className="flex flex-col bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent border border-gray-500 rounded-xl justify-around items-center w-full content-center">
             <CardContainer
               className="flex flex-col items-center cursor-pointer"
