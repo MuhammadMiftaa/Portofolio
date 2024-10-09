@@ -9,36 +9,36 @@ export default function NavbarLayout() {
     {
       name: "Home",
       link: "/",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconHome className="h-5 w-5 text-black" />,
     },
     {
       name: "About",
-      link: "/about",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      link: "#about",
+      icon: <IconUser className="h-5 w-5 text-black" />,
     },
     {
       name: "Experience",
-      link: "/experience",
+      link: "#experience",
       icon: (
-        <FaRegFileCode className="h-4 w-4 text-neutral-500 dark:text-white" />
+        <FaRegFileCode className="h-5 w-5 text-black" />
       ),
     },
     {
       name: "Projects",
-      link: "/projects",
-      icon: <RiAppsFill className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      link: "#projects",
+      icon: <RiAppsFill className="h-5 w-5 text-black" />,
     },
     {
       name: "Contact",
-      link: "/contact",
+      link: "#contact",
       icon: (
-        <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
+        <IconMessage className="h-5 w-5 text-black" />
       ),
     },
   ];
   return (
     <FloatingNav
-      className="from-color-1 to-color-2 bg-gradient-to-r font-poppins backdrop-blur-2xl"
+      className="from-color-1 to-color-2 overflow-hidden bg-gradient-to-r font-poppins backdrop-blur-2xl"
       navItems={navItems}
     />
   );

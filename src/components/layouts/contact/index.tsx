@@ -10,7 +10,7 @@ import { RiCodeSSlashFill } from "react-icons/ri";
 
 export default function ContactLayout() {
   return (
-    <div className="h-[50rem] pt-16 pb-14 px-24 w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
+    <div className="h-[50rem] pt-16 pb-14 px-24 w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center" id="contact">
       <div className="w-fit mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-transparent">
         <AnimatedGradientTextWithoutBorder className="">
           <span

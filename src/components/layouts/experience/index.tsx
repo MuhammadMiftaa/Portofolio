@@ -9,7 +9,7 @@ import { HiCheckCircle } from "react-icons/hi";
 
 export default function ExperienceLayout() {
   return (
-    <div className="py-12">
+    <div className="py-12" id="experience">
       <AnimatedGradientText className="ml-36">
         <span
           className={cn(

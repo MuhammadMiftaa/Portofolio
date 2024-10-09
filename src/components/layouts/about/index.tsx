@@ -59,7 +59,7 @@ export default function AboutLayout() {
   }, []);
 
   return (
-    <div className="my-16">
+    <div className="my-16" id="about">
       <AnimatedGradientText className="ml-36">
         <span
           className={cn(

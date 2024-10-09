@@ -51,7 +51,7 @@ export default function ProjectsLayout() {
   const [activeImage, setActiveImage] = useState<string>("");
 
   return (
-    <div
+    <div id="projects"
       className={`py-20 ${activeModal ? "overflow-hidden" : "overflow-auto"}`}
     >
       <AnimatedGradientTextWithoutBorder className="">
@@ -157,7 +157,8 @@ export default function ProjectsLayout() {
               <Image
                 className={`${
                   activeModal ? "scale-100" : "scale-0"
-                } h-3/4 object-cover w-auto duration-300 ease-in-out`}
+                } h-3/4 object-cover w-auto duration-300 ease-in-out border border-gray-950`}
+                style={{ boxShadow: "0 0 10px 5px rgba(0,0,0,0.5)" }}
                 src={activeImage}
                 alt="zoom-image"
                 width={500}
@@ -165,7 +166,7 @@ export default function ProjectsLayout() {
               />
               <div
                 className="p-3 text-white absolute top-4 right-4 cursor-pointer "
-                onClick={() => setActiveModal(false)}
+                onClick={() => {setActiveModal(false); setActiveImage("")}}
               >
                 <RiCloseLargeFill />
               </div>
