@@ -25,7 +25,7 @@ export default function ContactLayout() {
         </AnimatedGradientTextWithoutBorder>
       </div>
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black)] md:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-      <form className="w-full font-urbanist">
+      <form data-aos="fade-up" data-aos-duration="1000" className="w-full font-urbanist">
         <LabelInputContainer className="mb-4">
           <Label
             className="text-lg md:text-xl -mb-1 md:mb-0 font-light z-10 text-gray-400"

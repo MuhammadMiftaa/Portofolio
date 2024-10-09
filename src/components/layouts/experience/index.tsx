@@ -9,7 +9,7 @@ import { HiCheckCircle } from "react-icons/hi";
 
 export default function ExperienceLayout() {
   return (
-    <div className="pt-6 mt-10" id="experience">
+    <div className="pt-6 mt-10 overflow-hidden" id="experience">
       <AnimatedGradientText className="md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(
@@ -19,7 +19,7 @@ export default function ExperienceLayout() {
           Experience
         </span>
       </AnimatedGradientText>
-      <div className="flex flex-col px-6 sm:px-16 md:px-36 mt-10 md:mt-16">
+      <div data-aos="fade-up-left" data-aos-duration="1000" data-aos-delay="200" className="flex flex-col px-6 sm:px-16 md:px-36 mt-10 md:mt-16">
         <div className="relative py-4 px-6 flex h-fit w-full flex-col overflow-hidden rounded-lg border border-gray-700 bg-background md:shadow-xl">
           <div className="flex justify-between flex-col md:flex-row">
             <div className="flex gap-5 items-center">

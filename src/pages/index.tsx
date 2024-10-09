@@ -6,6 +6,7 @@ import AboutLayout from "@/components/layouts/about";
 import ExperienceLayout from "@/components/layouts/experience";
 import ProjectsLayout from "@/components/layouts/projects";
 import ContactLayout from "@/components/layouts/contact";
+import BackToTopElement from "@/components/elements/BackToTop";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ExperienceLayout />
       <ProjectsLayout />
       <ContactLayout />
+      <BackToTopElement />
     </div>
   );
 }

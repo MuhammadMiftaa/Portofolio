@@ -11,6 +11,7 @@ export default function AnimatedGradientTextWithoutBorder({
 }) {
   return (
     <div
+      data-aos="fade-right" data-aos-duration="1000"
       className={cn(
         "group relative flex max-w-fit flex-row items-center justify-center rounded-2xl px-5 py-1.5 text-sm font-medium transition-shadow duration-500 ease-out [--bg-size:300%]",
         className,

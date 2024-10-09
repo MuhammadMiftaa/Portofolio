@@ -18,13 +18,13 @@ export const HoverEffect = ({
 
   return (
     <div
-      className={cn(
-        "grid grid-cols-3 py-3 md:py-10 w-fit mx-auto",
-        className
-      )}
+      className={cn("grid grid-cols-3 py-3 md:py-10 w-fit mx-auto", className)}
     >
       {items.map((item, idx) => (
         <Link
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay={(idx + 1) * 100}
           href={item?.link}
           key={item?.link}
           className="relative group  block p-2 h-full w-fit"

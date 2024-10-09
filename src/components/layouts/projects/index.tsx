@@ -66,9 +66,10 @@ export default function ProjectsLayout() {
           My Projects
         </span>
       </AnimatedGradientTextWithoutBorder>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 md:gap-12 justify-stretch px-6 md:px-16 mt-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 md:gap-12 justify-stretch px-6 md:px-16 mt-5 overflow-hidden">
         {data.map((item, idx) => (
           <div
+            data-aos={(idx+1) % 2 === 0 ? "fade-up-left" : "fade-up-right"} data-aos-duration="1000" data-aos-delay={((idx+2)%2) * 200} 
             key={idx}
             className="h-[30rem] md:h-full md:aspect-square relative overflow-hidden border border-gray-700 pt-8 pl-8"
             style={{ borderRadius: "0 2rem 0 2rem" }}

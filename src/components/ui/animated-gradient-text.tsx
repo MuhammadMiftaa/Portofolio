@@ -11,6 +11,7 @@ export default function AnimatedGradientText({
 }) {
   return (
     <div
+    data-aos="fade-right" data-aos-duration="1000"
       className={cn(
         "group relative flex max-w-fit flex-row items-center justify-center rounded-2xl font-medium shadow-[inset_0_-8px_10px_#8fdfff1f] backdrop-blur-sm transition-shadow duration-500 ease-out [--bg-size:300%] hover:shadow-[inset_0_-5px_10px_#8fdfff3f] bg-black/40",
         className,

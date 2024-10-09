@@ -19,9 +19,7 @@ export default function NavbarLayout() {
     {
       name: "Experience",
       link: "#experience",
-      icon: (
-        <FaRegFileCode className="h-5 w-5 text-black" />
-      ),
+      icon: <FaRegFileCode className="h-5 w-5 text-black" />,
     },
     {
       name: "Projects",
@@ -31,9 +29,7 @@ export default function NavbarLayout() {
     {
       name: "Contact",
       link: "#contact",
-      icon: (
-        <IconMessage className="h-5 w-5 text-black" />
-      ),
+      icon: <IconMessage className="h-5 w-5 text-black" />,
     },
   ];
   return (

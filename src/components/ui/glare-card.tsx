@@ -66,6 +66,9 @@ export const GlareCard = ({
   };
   return (
     <div
+      data-aos="fade-right"
+      data-aos-delay="200"
+      data-aos-duration="1000"
       style={containerStyle}
       className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-fit"
       ref={refElement}
