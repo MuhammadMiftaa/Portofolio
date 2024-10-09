@@ -60,7 +60,7 @@ export default function AboutLayout() {
 
   return (
     <div className="my-6 sm:my-10 md:my-16 overflow-hidden w-full flex flex-col" id="about">
-      <AnimatedGradientText className="ml-5 sm:ml-10 md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
+      <AnimatedGradientText className="md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(
             `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `

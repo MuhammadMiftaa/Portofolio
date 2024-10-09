@@ -10,22 +10,22 @@ import { HiCheckCircle } from "react-icons/hi";
 export default function ExperienceLayout() {
   return (
     <div className="py-12" id="experience">
-      <AnimatedGradientText className="ml-36">
+      <AnimatedGradientText className="md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(
-            `text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `
+            `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `
           )}
         >
           Experience
         </span>
       </AnimatedGradientText>
-      <div className="flex flex-col px-36 mt-16">
+      <div className="flex flex-col px-6 sm:px-16 md:px-36 mt-10 md:mt-16">
         <div className="relative py-4 px-6 flex h-fit w-full flex-col overflow-hidden rounded-lg border border-gray-700 bg-background md:shadow-xl">
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-col md:flex-row">
             <div className="flex gap-5 items-center">
               <div className="bg-white rounded-full w-fit h-fit">
                 <Image
-                  className="h-16 w-16 rounded-full"
+                  className="rounded-full sm:h-16 sm:w-16 "
                   src={"/ruangguru.png"}
                   alt="company-image"
                   width={100}
@@ -39,11 +39,11 @@ export default function ExperienceLayout() {
                 <h2 className="text-slate-500">Fullstack Golang & AI</h2>
               </div>
             </div>
-            <h3 className="text-slate-500 font-urbanist justify-self-stretch mt-2">
+            <h3 className="text-slate-200 md:text-slate-500 text-sm sm:text-base font-urbanist justify-self-stretch mt-3 w-full text-center md:w-fit ">
               Sep 2024 - Dec 2024
             </h3>
           </div>
-          <div className="flex gap-2 mt-4 font-light font-urbanist">
+          <div className="flex gap-1 sm:gap-2 mt-4 font-light font-urbanist flex-wrap">
             <span className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 ">
               HTML&CSS
             </span>
