@@ -6,51 +6,65 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { Popover } from "flowbite-react";
 import React from "react";
-import { RiCodeSSlashFill } from "react-icons/ri";
 
 export default function ContactLayout() {
   return (
-    <div className="h-[50rem] pt-16 pb-14 px-24 w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center" id="contact">
+    <div
+      className="h-[50rem] pt-6 mt-10 pb-10 px-6 md:px-24 w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center"
+      id="contact"
+    >
       <div className="w-fit mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-transparent">
         <AnimatedGradientTextWithoutBorder className="">
           <span
             className={cn(
-              `text-5xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              `text-3xl sm:text-4xl md:text-5xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
             )}
           >
             Let's Connect
           </span>
         </AnimatedGradientTextWithoutBorder>
       </div>
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black)] md:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <form className="w-full font-urbanist">
         <LabelInputContainer className="mb-4">
-          <Label className="text-xl font-light" htmlFor="namr">
+          <Label
+            className="text-lg md:text-xl -mb-1 md:mb-0 font-light z-10 text-gray-400"
+            htmlFor="namr"
+          >
             Name
           </Label>
           <Input className="text-lg" id="namr" type="text" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label className="text-xl font-light" htmlFor="email">
+          <Label
+            className="text-lg md:text-xl -mb-1 md:mb-0 font-light z-10 text-gray-400"
+            htmlFor="email"
+          >
             Email Address
           </Label>
           <Input className="text-lg" id="email" type="email" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label className="text-xl font-light" htmlFor="subject">
+          <Label
+            className="text-lg md:text-xl -mb-1 md:mb-0 font-light z-10 text-gray-400"
+            htmlFor="subject"
+          >
             Subject
           </Label>
           <Input className="text-lg" id="subject" type="text" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label className="text-xl font-light" htmlFor="message">
+          <Label
+            className="text-lg md:text-xl -mb-1 md:mb-0 font-light z-10 text-gray-400"
+            htmlFor="message"
+          >
             Your message
           </Label>
           <Textarea className="text-lg" id="message" rows={5} />
         </LabelInputContainer>
 
         <button
-          className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 block bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 block bg-zinc-800 w-full text-gray-400 rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
         >
           Send message
@@ -86,18 +100,19 @@ export default function ContactLayout() {
             </button>
           </div> */}
       </form>
-      <div className="mt-16 flex justify-between w-full z-10 text-slate-300">
+      <div className="text-sm md:text-base mt-16 flex flex-col md:flex-row items-center justify-between w-full z-10 text-slate-300">
         <h1 className="font-urbanist italic font-light">
           Design Inspired by{" "}
           <Popover content={content} trigger="hover">
             <span className="font-bold cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-color-1 hover:to-color-2 duration-300 hover:duration-300 text-white">
-              them.
+              Their Unique Style.
             </span>
           </Popover>
         </h1>
         <h2 className="font-urbanist font-light">
-          Copyright @ 2024.{" "}
-          <span className="text-white font-bold">Muhammad Mifta</span>
+          Created by{" "}
+          <span className="text-white font-bold">Muhammad Mifta.</span>{" "}
+          Copyright @ 2024.
         </h2>
       </div>
     </div>
@@ -107,11 +122,17 @@ export default function ContactLayout() {
 const content = (
   <div className="text-sm bg-black py-1 px-2">
     <p className="font-bold font-poppins">
-      <LinkPreview className="text-white" url="https://www.yusufs.me/" imageSrc="/inspired1.png" isStatic={true}>
+      <LinkPreview
+        className="text-white"
+        url="https://www.yusufs.me/"
+        imageSrc="/inspired1.png"
+        isStatic={true}
+      >
         Yusuf Saputra
       </LinkPreview>
       ,{" "}
-      <LinkPreview className="text-white"
+      <LinkPreview
+        className="text-white"
         url="https://www.vickyadrii.my.id/"
         imageSrc="/inspired2.png"
         isStatic={true}
@@ -119,7 +140,12 @@ const content = (
         Vicky Herdiansyah Adri
       </LinkPreview>
       , and{" "}
-      <LinkPreview className="text-white" url="https://aafrzl.my.id/" imageSrc="/inspired3.png" isStatic={true}>
+      <LinkPreview
+        className="text-white"
+        url="https://aafrzl.my.id/"
+        imageSrc="/inspired3.png"
+        isStatic={true}
+      >
         Afrizal Mufriz Fouji
       </LinkPreview>
     </p>

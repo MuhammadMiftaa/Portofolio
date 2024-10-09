@@ -59,7 +59,7 @@ export default function AboutLayout() {
   }, []);
 
   return (
-    <div className="my-6 sm:my-10 md:my-16 overflow-hidden w-full flex flex-col" id="about">
+    <div className="pt-6 sm:my-10 md:my-16 overflow-hidden w-full flex flex-col" id="about">
       <AnimatedGradientText className="md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(

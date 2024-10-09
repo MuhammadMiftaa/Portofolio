@@ -53,14 +53,14 @@ export default function ProjectsLayout() {
   return (
     <div
       id="projects"
-      className={`py-6 md:py-20 ${
+      className={`pt-6 mt-10 ${
         activeModal ? "overflow-hidden" : "overflow-auto"
       }`}
     >
       <AnimatedGradientTextWithoutBorder className="">
         <span
           className={cn(
-            `text-3xl sm:text-4xl md:text-6xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+            `text-3xl sm:text-4xl md:text-6xl py-1.5 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
           )}
         >
           My Projects
