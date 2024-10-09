@@ -69,7 +69,9 @@ export default function ProjectsLayout() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 md:gap-12 justify-stretch px-6 md:px-16 mt-5 overflow-hidden">
         {data.map((item, idx) => (
           <div
-            data-aos={(idx+1) % 2 === 0 ? "fade-up-left" : "fade-up-right"} data-aos-duration="1000" data-aos-delay={((idx+2)%2) * 200} 
+            data-aos={(idx + 1) % 2 === 0 ? "fade-up-left" : "fade-up-right"}
+            data-aos-duration="1000"
+            data-aos-delay={((idx + 2) % 2) * 200}
             key={idx}
             className="h-[30rem] md:h-full md:aspect-square relative overflow-hidden border border-gray-700 pt-8 pl-8"
             style={{ borderRadius: "0 2rem 0 2rem" }}
@@ -153,32 +155,6 @@ export default function ProjectsLayout() {
               </div>
             </div>
 
-            <div
-              className={`flex justify-center items-center backdrop-blur-sm fixed inset-0 duration-100 overflow-hidden ${
-                activeModal ? "opacity-100 z-50" : "opacity-0 -z-10"
-              }`}
-            >
-              <Image
-                className={`${
-                  activeModal ? "scale-100" : "scale-0"
-                } w-[90%] h-auto sm:w-auto sm:h-[80%] md:h-3/4 object-cover md:w-auto duration-300 ease-in-out border border-gray-950`}
-                style={{ boxShadow: "0 0 10px 5px rgba(0,0,0,0.5)" }}
-                src={activeImage}
-                alt="zoom-image"
-                width={500}
-                height={500}
-              />
-              <div
-                className="p-3 text-white absolute top-2 right-2 md:top-4 md:right-4 cursor-pointer text-2xl md:text-base"
-                onClick={() => {
-                  setActiveModal(false);
-                  setActiveImage("");
-                }}
-              >
-                <RiCloseLargeFill />
-              </div>
-            </div>
-
             <BorderBeam
               colorFrom="#FF00AA"
               colorTo="#00FFF1"
@@ -195,6 +171,36 @@ export default function ProjectsLayout() {
             />
           </div>
         ))}
+      </div>
+      <div
+        onClick={() => {
+          setActiveModal(false);
+          setActiveImage("");
+        }}
+        className={`flex justify-center items-center backdrop-blur-sm fixed inset-0 duration-100 overflow-hidden ${
+          activeModal ? "opacity-100 z-50" : "opacity-0 -z-10"
+        }`}
+      >
+        <Image
+          onClick={(event) => event.stopPropagation()}
+          className={`${
+            activeModal ? "scale-100" : "scale-0"
+          } w-[90%] h-auto sm:w-auto sm:h-[80%] md:h-[90%] object-cover md:w-auto duration-300 ease-in-out border border-gray-950`}
+          style={{ boxShadow: "0 0 10px 5px rgba(0,0,0,0.5)" }}
+          src={activeImage}
+          alt="zoom-image"
+          width={500}
+          height={500}
+        />
+        <div
+          className="p-3 text-white absolute top-2 right-2 md:top-4 md:right-4 cursor-pointer text-2xl md:text-base"
+          onClick={() => {
+            setActiveModal(false);
+            setActiveImage("");
+          }}
+        >
+          <RiCloseLargeFill />
+        </div>
       </div>
     </div>
   );
