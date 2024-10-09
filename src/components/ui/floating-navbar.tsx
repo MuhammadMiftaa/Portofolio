@@ -55,9 +55,16 @@ export const FloatingNav = ({
         // transition={{
         //   duration: 0.2,
         // }}
-        data-aos="zoom-in"
-        data-aos-duration="2000"
-        data-aos-delay="300"
+        initial={{ opacity: 0.0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0,
+          duration: 2,
+          ease: "easeInOut",
+        }}
+        // data-aos="zoom-in"
+        // data-aos-duration="2000"
+        // data-aos-delay="300"
         className={cn(
           "flex max-w-fit overflow-hidden absolute top-10 inset-x-0 mx-auto dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-8 py-4  items-center justify-center space-x-4",
           className

@@ -21,39 +21,49 @@ export const HoverEffect = ({
       className={cn("grid grid-cols-3 py-3 md:py-10 w-fit mx-auto", className)}
     >
       {items.map((item, idx) => (
-        <Link
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay={(idx + 1) * 100}
-          href={item?.link}
-          key={item?.link}
-          className="relative group  block p-2 h-full w-fit"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.1 * (idx + 1),
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
         >
-          <AnimatePresence>
-            {hoveredIndex === idx && (
-              <motion.span
-                className="absolute inset-1 h-[2.6rem] w-[2.6rem] md:h-[3.1rem] md:w-[3.1rem] bg-gradient-to-br from-color-1 to-color-2 block  rounded-xl"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
-              />
-            )}
-          </AnimatePresence>
-          <Card>
-            {item.icon}
-            {/* <CardTitle>{item.title}</CardTitle>
+          <Link
+            // data-aos="fade-up"
+            // data-aos-duration="1000"
+            // data-aos-delay={(idx + 1) * 100}
+            href={item?.link}
+            key={item?.link}
+            className="relative group  block p-2 h-full w-fit"
+            onMouseEnter={() => setHoveredIndex(idx)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <AnimatePresence>
+              {hoveredIndex === idx && (
+                <motion.span
+                  className="absolute inset-1 h-[2.6rem] w-[2.6rem] md:h-[3.1rem] md:w-[3.1rem] bg-gradient-to-br from-color-1 to-color-2 block  rounded-xl"
+                  layoutId="hoverBackground"
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: 1,
+                    transition: { duration: 0.15 },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    transition: { duration: 0.15, delay: 0.2 },
+                  }}
+                />
+              )}
+            </AnimatePresence>
+            <Card>
+              {item.icon}
+              {/* <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.icon}</CardDescription> */}
-          </Card>
-        </Link>
+            </Card>
+          </Link>
+        </motion.div>
       ))}
     </div>
   );
