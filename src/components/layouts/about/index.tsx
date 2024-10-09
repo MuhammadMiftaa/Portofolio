@@ -59,8 +59,8 @@ export default function AboutLayout() {
   }, []);
 
   return (
-    <div className="my-6 sm:my-10 md:my-16 overflow-hidden w-full" id="about">
-      <AnimatedGradientText className="ml-5 sm:ml-10 md:ml-36 px-8 md:px-10 py-1 md:py-1.5">
+    <div className="my-6 sm:my-10 md:my-16 overflow-hidden w-full flex flex-col" id="about">
+      <AnimatedGradientText className="ml-5 sm:ml-10 md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(
             `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `
@@ -69,8 +69,8 @@ export default function AboutLayout() {
           About me
         </span>
       </AnimatedGradientText>
-      <div className="mx-5 md:px-[9.1rem] w-full bg-primary flex flex-col md:flex-row gap-5 md:gap-20 mt-16">
-        <GlareCard className="flex flex-col items-center justify-center h-[8.5rem] w-[8.5rem]  md:w-full md:h-full">
+      <div className="mx-5 md:px-[9.1rem] w-full bg-primary flex flex-col items-center pr-10 md:flex-row gap-5 md:gap-20 mt-10 md:mt-16">
+        <GlareCard className="flex flex-col items-center justify-center h-[8.5rem] w-[8.5rem] md:w-full md:h-full">
           <ShineBorder
             className="relative flex flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
             color={["#00FFF1", "#FF00AA"]}
@@ -85,79 +85,81 @@ export default function AboutLayout() {
           </ShineBorder>
         </GlareCard>
         <div className="relative">
-          <p className="text-white w-[88%] sm:w-[95%] md:w-full text-sm sm:text-base md:text-lg text-justify tracking-wide font-urbanist mt-2 md:mt-5">
+          <p className="text-white w-full text-sm sm:text-base md:text-lg text-justify tracking-wide font-urbanist mt-2 md:mt-5">
             I am a Frontend Web Developer with 1 year of experience. I am a
             self-taught developer who is passionate about making the web a
             better place. I have experience working with modern frontend
             technologies like React, NextJS, and TailwindCSS. I am always eager
             to learn new things and improve my skills.
           </p>
-          <h1 className="text-slate-400 font-urbanist italic mt-2 md:mt-5 mb-1.5 text-sm sm:text-base w-full text-center sm:text-start">
-            Technologies I Work With
-          </h1>
-          <div className="flex gap-2 items-center w-full justify-center sm:justify-start">
-            <div className="rounded-xl overflow-hidden w-10 h-10">
-              <Image
-                className="w-full h-full"
-                src={"/javascript.svg"}
-                alt="javascript-icon"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden w-10 h-10">
-              <Image
-                className="w-full h-full"
-                src={"/typescript.svg"}
-                alt="typescript-icon"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden w-10 h-10">
-              <Image
-                className="w-full h-full"
-                src={"/tailwindcss.svg"}
-                alt="tailwindcss-icon"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden w-10 h-10">
-              <Image
-                className="w-full h-full"
-                src={"/react.svg"}
-                alt="react-icon"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden w-10 h-10">
-              <Image
-                className="w-full h-full"
-                src={"/nextjs.svg"}
-                alt="nextjs-icon"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden w-10 h-10">
-              <Image
-                className="w-full h-full"
-                src={"/postgresql.svg"}
-                alt="postgresql-icon"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden w-10 h-10">
-              <Image
-                className="w-full h-full"
-                src={"/mongodb.svg"}
-                alt="mongodb-icon"
-                width={100}
-                height={100}
-              />
+          <div className="flex flex-col">
+            <h1 className="text-slate-400 font-urbanist italic mt-2 md:mt-5 mb-1.5 text-sm sm:text-base w-full text-center sm:text-start mr-10 md:mr-0">
+              Technologies I Work With
+            </h1>
+            <div className="flex gap-2 items-center w-full justify-center sm:justify-start mr-10 md:mr-0">
+              <div className="rounded-xl overflow-hidden w-10 h-10">
+                <Image
+                  className="w-full h-full"
+                  src={"/javascript.svg"}
+                  alt="javascript-icon"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden w-10 h-10">
+                <Image
+                  className="w-full h-full"
+                  src={"/typescript.svg"}
+                  alt="typescript-icon"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden w-10 h-10">
+                <Image
+                  className="w-full h-full"
+                  src={"/tailwindcss.svg"}
+                  alt="tailwindcss-icon"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden w-10 h-10">
+                <Image
+                  className="w-full h-full"
+                  src={"/react.svg"}
+                  alt="react-icon"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden w-10 h-10">
+                <Image
+                  className="w-full h-full"
+                  src={"/nextjs.svg"}
+                  alt="nextjs-icon"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden w-10 h-10">
+                <Image
+                  className="w-full h-full"
+                  src={"/postgresql.svg"}
+                  alt="postgresql-icon"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden w-10 h-10">
+                <Image
+                  className="w-full h-full"
+                  src={"/mongodb.svg"}
+                  alt="mongodb-icon"
+                  width={100}
+                  height={100}
+                />
+              </div>
             </div>
           </div>
           {/* <button className="font-poppins absolute bottom-5 right-0 inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
@@ -173,29 +175,29 @@ export default function AboutLayout() {
           </button> */}
         </div>
       </div>
-      <div>
-        <AnimatedGradientTextWithoutBorder className="ml-[6.5rem] mt-8">
+      <div className="flex flex-col items-center">
+        <AnimatedGradientTextWithoutBorder className="md:ml-[6.5rem] mt-8">
           <span
             className={cn(
-              `text-xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              `text-lg sm:text-xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
             )}
           >
             Training and Certification
           </span>
         </AnimatedGradientTextWithoutBorder>
-        <div className="relative flex w-[88%] mx-auto flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl after:content-[''] after:bg-gradient-to-r after:from-primary after:from-50% after:to-transparent after:w-32 after:h-32 after:absolute after:left-0 before:content-[''] before:bg-gradient-to-l before:from-primary before:from-50% before:to-transparent before:w-32 before:h-32 before:absolute before:right-0 before:z-10">
-          <Marquee pauseOnHover className="[--duration:120s]">
+        <div className="relative flex w-full md:w-[88%] mx-auto flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl after:content-[''] after:bg-gradient-to-r after:from-primary after:from-50% after:to-transparent after:w-10 md:after:w-32 after:h-36 md:after:h-32 after:absolute after:left-0 before:content-[''] before:bg-gradient-to-l before:from-primary before:from-50% before:to-transparent before:w-10 md:before:w-32 before:h-36 md:before:h-32 before:absolute before:right-0 before:z-10">
+          <Marquee pauseOnHover className="[--duration:60s] md:[--duration:120s]">
             {firstRow.map((item, idx) => (
               <figure
                 key={idx}
                 className={cn(
-                  "relative w-96 cursor-pointer overflow-hidden rounded-xl border px-7 py-5",
+                  "relative w-64 md:w-96 cursor-pointer overflow-hidden rounded-xl border px-7 py-5",
                   "border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent font-poppins"
                 )}
               >
                 <div className="flex flex-row items-center gap-2">
                   <div className="flex flex-col">
-                    <figcaption className="text-sm font-medium text-white">
+                    <figcaption className="text-xs md:text-sm font-medium text-white">
                       {item.provider}
                     </figcaption>
                   </div>
@@ -211,8 +213,8 @@ export default function AboutLayout() {
           </Marquee>
         </div>
       </div>
-      <div className="px-36 ">
-        <div className="text-white text-3xl font-poppins flex items-center my-3 uppercase font-bold gap-[1px] tracking-wide">
+      <div className="px-6 sm:px-16 md:px-36">
+        <div className="text-white text-xl sm:text-2xl md:text-3xl font-poppins flex items-center my-3 uppercase font-bold gap-[1px] tracking-wide">
           <h1>Github C</h1>
           <Link href={"https://github.com/MuhammadMiftaa"}>
             <FaGithub className="rotate-45 hover:rotate-0 duration-500" />
@@ -220,56 +222,56 @@ export default function AboutLayout() {
           <h1 className="tracking-wide">ntributions —</h1>
         </div>
 
-        <div className="flex justify-stretch gap-5 w-full my-5">
-          <div className="h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative ">
-            <p className="text-gray-400 font-urbanist text-lg absolute top-2 left-2">
+        <div className="flex justify-stretch gap-2 md:gap-5 w-full my-5">
+          <div className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative ">
+            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               Total
             </p>
             <NumberTicker
-              className="text-white font-poppins text-6xl pt-3"
+              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
               value={totalContributions}
             />
           </div>
-          <div className="h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
-            <p className="text-gray-400 font-urbanist text-lg absolute top-2 left-2">
+          <div className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
+            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               This Week
             </p>
             <NumberTicker
-              className="text-white font-poppins text-6xl pt-3"
+              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
               value={thisWeekContributions}
             />
           </div>
-          <div className="h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
-            <p className="text-gray-400 font-urbanist text-lg absolute top-2 left-2">
+          <div className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
+            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               Best Day
             </p>
             <NumberTicker
-              className="text-white font-poppins text-6xl pt-3"
+              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
               value={bestDayContributions}
             />
           </div>
-          <div className="h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
-            <p className="text-gray-400 font-urbanist text-lg absolute top-2 left-2">
+          <div className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
+            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               Average
             </p>
             <NumberTicker
-              className="text-white font-poppins text-6xl pt-3"
+              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
               value={averageContributions}
             />
-            <span className="text-gray-400 text-xl font-urbanist pt-8">
+            <span className="text-gray-400 text-sm sm:text-base md:text-xl font-urbanist pt-8">
               /day
             </span>
           </div>
         </div>
 
-        <div className="flex gap-4">
-          {/* <div className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-fit">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-[100%]">
             <GithubCalendar username="MuhammadMiftaa" />
-          </div> */}
-          <div className="flex flex-col bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent border border-gray-500 rounded-xl justify-around items-center w-full content-center">
+          </div>
+          <div className="flex flex-row md:flex-col bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent border border-gray-500 rounded-xl justify-around items-center w-full content-center">
             <CardContainer
               className="flex flex-col items-center cursor-pointer"
-              containerClassName="py-0"
+              containerClassName="py-4"
             >
               <CardBody className="relative group/card h-10 w-full">
                 <CardItem translateZ={200} className="w-full">
