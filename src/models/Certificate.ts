@@ -1,7 +1,7 @@
 import { isAscii } from "buffer";
 import { Schema, model, models } from "mongoose";
 
-const SertificateSchema = new Schema({
+const CertificateSchema = new Schema({
   title: String,
   program: String,
   date: String,
@@ -10,4 +10,4 @@ const SertificateSchema = new Schema({
   image: String,
 });
 
-export const Sertificate = models.Sertificate || model("Sertificate", SertificateSchema);
+export const Certificate = models.Certificate || model("Certificate", CertificateSchema);

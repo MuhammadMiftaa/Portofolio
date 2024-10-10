@@ -4,10 +4,10 @@ const ProjectSchema = new Schema({
   title: String,
   description: String,
   techStack: [String],
-  mobileView: String,
-  desktopView: String,
-  link: String,
-  repository: String,
+  mobileViewImage: String,
+  webViewImage: String,
+  url: String,
+  githubLink: String,
 });
 
 export const Project = models.Project || model("Project", ProjectSchema);
