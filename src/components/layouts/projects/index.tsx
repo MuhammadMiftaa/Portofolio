@@ -26,7 +26,7 @@ export default function ProjectsLayout() {
       githubLink: "https://github.com/MuhammadMiftaa/Tagih-Janji-MongoDB",
       url: "https://tagih-janji.vercel.app",
       webViewImage: "/tagih-janji.png",
-      mobileViewImage: "/tagih-janji-mobile.png",
+      mobileViewImage: "",
     },
     {
       title: "Shopative",
@@ -131,7 +131,9 @@ export default function ProjectsLayout() {
               </div>
 
               <div
-                className="absolute w-fit -left-1 md:left-5 bottom-16 md:bottom-2 cursor-pointer"
+                className={`absolute w-fit -left-1 md:left-5 bottom-16 md:bottom-2 cursor-pointer ${
+                  item.mobileViewImage ? "block" : "hidden"
+                }`}
                 onClick={() => {
                   setActiveModal(true);
                   setActiveImage(item.mobileViewImage);
