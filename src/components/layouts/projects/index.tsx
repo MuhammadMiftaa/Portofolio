@@ -1,51 +1,24 @@
 import AnimatedGradientTextWithoutBorder from "@/components/ui/animated-gradient-text-without-border";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { cn } from "@/lib/utils";
+import { ProjectType } from "@/types/ProjectType";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaGithub, FaLink } from "react-icons/fa";
 import { RiCloseLargeFill } from "react-icons/ri";
+import useSWR from "swr";
 
 export default function ProjectsLayout() {
-  const data = [
-    {
-      title: "Sanggar Tari",
-      description:
-        "This website featuring content related to JKT48. It showcases updates on theater performances, merchandise, and news about the group. The design is minimalistic, with an emphasis on upcoming events and promotional materials. The structure hints at a site for fans to stay informed about JKT48 activities.",
-      techStack: ["Typescript", "React", "NextJS", "TailwindCSS", "Firebase"],
-      githubLink: "https://github.com/MuhammadMiftaa/JKT48-NextJS",
-      url: "https://sanggar-tari.vercel.app",
-      webViewImage: "/sanggar-tari-web.png",
-      mobileViewImage: "/sanggar-tari-mobile.jpg",
-    },
-    {
-      title: "Tagih Janji",
-      description:
-        "Tagih Janji website is a website article that contains promises from politicians. This website also provides a feature to write articles and upload them publicly.",
-      techStack: ["Typescript", "React", "NextJS", "TailwindCSS", "MongoDB"],
-      githubLink: "https://github.com/MuhammadMiftaa/Tagih-Janji-MongoDB",
-      url: "https://tagih-janji.vercel.app",
-      webViewImage: "/tagih-janji.png",
-      mobileViewImage: "",
-    },
-    {
-      title: "Shopative",
-      description:
-        "Shopative is a website that provides a platform for users to buy and sell products.",
-      techStack: [
-        "Typescript",
-        "React",
-        "NextJS",
-        "TailwindCSS",
-        "MongoDB",
-        "AWS S3",
-      ],
-      githubLink: "https://github.com/MuhammadMiftaa/Shopative-Dashboard",
-      url: "https://shopative-dashboard.vercel.app",
-      webViewImage: "/shopative.png",
-      mobileViewImage: "/shopative-mobile.png",
-    },
-  ];
+  // FETCH PROJECTS DATA ⚽
+  const [projects, setProjects] = useState<ProjectType[]>([]);
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data, error, isLoading } = useSWR("/api/project", fetcher);
+  useEffect(() => {
+    if (data) {
+      setProjects(data.data);
+    }
+  });
+  // FETCH PROJECTS DATA ⚽
 
   const [activeModal, setActiveModal] = useState<boolean>(false);
   const [activeImage, setActiveImage] = useState<string>("");
@@ -67,7 +40,7 @@ export default function ProjectsLayout() {
         </span>
       </AnimatedGradientTextWithoutBorder>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 md:gap-12 justify-stretch px-6 md:px-16 mt-5 overflow-hidden">
-        {data.map((item, idx) => (
+        {projects.map((item, idx) => (
           <div
             data-aos={(idx + 1) % 2 === 0 ? "fade-up-left" : "fade-up-right"}
             data-aos-duration="1000"
@@ -119,7 +92,7 @@ export default function ProjectsLayout() {
                     <Image
                       width={500}
                       height={500}
-                      src="/sanggar-tari-web.png"
+                      src={item.webViewImage}
                       className="h-[104px] md:h-[156px] w-full rounded-lg"
                       alt=""
                     />
@@ -148,7 +121,7 @@ export default function ProjectsLayout() {
                     <Image
                       height={500}
                       width={500}
-                      src="/sanggar-tari-mobile.jpg"
+                      src={item.mobileViewImage}
                       className={`w-[91px] h-[191px] md:w-[136px] md:h-[286px] duration-300`}
                       alt=""
                     />

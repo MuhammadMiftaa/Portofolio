@@ -13,9 +13,41 @@ import { FetchGithub } from "@/services/github";
 import { FaGithub } from "react-icons/fa";
 import NumberTicker from "@/components/ui/number-ticker";
 import Link from "next/link";
+import useSWR from "swr";
+import { CertificateType } from "@/types/CertificateType";
+import { TechType } from "@/types/TechType";
 
 export default function AboutLayout() {
-  const [githubData, setGithubData] = useState<any>({});
+  let fetcher = async (url: string) => fetch(url).then((res) => res.json());
+
+  // FETCH DATA CERTIFICATE 🥽
+  const [certificates, setCertificates] = useState<CertificateType[]>([]);
+  const { data: dataCertificate, isLoading: isLoadingCertificate } = useSWR(
+    "/api/certificate",
+    fetcher
+  );
+  useEffect(() => {
+    if (dataCertificate) {
+      setCertificates(dataCertificate.data);
+    }
+  }, [dataCertificate]);
+  // FETCH DATA CERTIFICATE 🥽
+
+  // FETCH DATA TECH 🥽
+  const [tech, setTech] = useState<TechType[]>([]);
+  const { data: dataTech, isLoading: isLoadingTech } = useSWR(
+    "/api/tech",
+    fetcher
+  );
+  useEffect(() => {
+    if (dataTech) {
+      setTech(dataTech.data);
+    }
+  }, [dataTech]);
+  // FETCH DATA TECH 🥽
+
+  // FETCH DATA GITHUB ⚽
+  const [githubAllData, setGithubAllData] = useState<any>({});
   const [totalContributions, setTotalContributions] = useState<number>(0);
   const [thisWeekContributions, setThisWeekContributions] = useState<number>(0);
   const [bestDayContributions, setBestDayContributions] = useState<number>(0);
@@ -24,14 +56,13 @@ export default function AboutLayout() {
   useEffect(() => {
     FetchGithub().then((res) => {
       const githubData = res.data;
+      setGithubAllData(githubData);
+
       const totalContributions =
         githubData.contributionsCollection.contributionCalendar
           .totalContributions;
-
-      setGithubData(githubData);
       setTotalContributions(totalContributions);
 
-      // Hitung kontribusi minggu ini
       const weeks =
         githubData.contributionsCollection.contributionCalendar.weeks;
       const lastWeekContributions = weeks[
@@ -42,7 +73,6 @@ export default function AboutLayout() {
       );
       setThisWeekContributions(lastWeekContributions);
 
-      // Hitung kontribusi terbaik (best day)
       let bestDay = 0;
       weeks.forEach((week: any) => {
         week.contributionDays.forEach((day: any) => {
@@ -53,13 +83,16 @@ export default function AboutLayout() {
       });
       setBestDayContributions(bestDay);
 
-      // Hitung rata-rata kontribusi per hari (asumsi 365 hari)
       setAverageContributions(totalContributions / 365);
     });
   }, []);
+  // FETCH DATA GITHUB ⚽
 
   return (
-    <div className="pt-6 sm:my-10 md:my-16 overflow-hidden w-full flex flex-col" id="about">
+    <div
+      className="pt-6 sm:my-10 md:my-16 overflow-hidden w-full flex flex-col"
+      id="about"
+    >
       <AnimatedGradientText className="md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(
@@ -84,7 +117,12 @@ export default function AboutLayout() {
             ></Image>
           </ShineBorder>
         </GlareCard>
-        <div data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000" className="relative">
+        <div
+          data-aos="fade-left"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+          className="relative"
+        >
           <p className="text-white w-full text-sm sm:text-base md:text-lg text-justify tracking-wide font-urbanist mt-2 md:mt-5">
             I am a Frontend Web Developer with 1 year of experience. I am a
             self-taught developer who is passionate about making the web a
@@ -97,85 +135,31 @@ export default function AboutLayout() {
               Technologies I Work With
             </h1>
             <div className="flex gap-2 items-center w-full justify-center sm:justify-start mr-10 md:mr-0">
-              <div className="rounded-xl overflow-hidden w-10 h-10">
-                <Image
-                  className="w-full h-full"
-                  src={"/javascript.svg"}
-                  alt="javascript-icon"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden w-10 h-10">
-                <Image
-                  className="w-full h-full"
-                  src={"/typescript.svg"}
-                  alt="typescript-icon"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden w-10 h-10">
-                <Image
-                  className="w-full h-full"
-                  src={"/tailwindcss.svg"}
-                  alt="tailwindcss-icon"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden w-10 h-10">
-                <Image
-                  className="w-full h-full"
-                  src={"/react.svg"}
-                  alt="react-icon"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden w-10 h-10">
-                <Image
-                  className="w-full h-full"
-                  src={"/nextjs.svg"}
-                  alt="nextjs-icon"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden w-10 h-10">
-                <Image
-                  className="w-full h-full"
-                  src={"/postgresql.svg"}
-                  alt="postgresql-icon"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden w-10 h-10">
-                <Image
-                  className="w-full h-full"
-                  src={"/mongodb.svg"}
-                  alt="mongodb-icon"
-                  width={100}
-                  height={100}
-                />
-              </div>
+              {tech.map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`rounded-xl overflow-hidden w-10 h-10 ${
+                    item.name === "NextJS" || item.name === "Github" ? "invert" : ""
+                  }`}
+                >
+                  <Image
+                    className="w-full h-full"
+                    src={item.logo}
+                    alt={item.name}
+                    width={100}
+                    height={100}
+                  />
+                </div>
+              ))}
             </div>
           </div>
-          {/* <button className="font-poppins absolute bottom-5 right-0 inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            <AnimatedGradientTextWithoutBorder>
-              <span
-                className={cn(
-                  `text-lg font-urbanist inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
-                )}
-              >
-                Contact me
-              </span>
-            </AnimatedGradientTextWithoutBorder>
-          </button> */}
         </div>
       </div>
-      <div data-aos="fade-up" data-aos-duration="1000" className="flex flex-col items-center">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="flex flex-col items-center md:items-start"
+      >
         <AnimatedGradientTextWithoutBorder className="md:ml-[6.5rem] mt-8">
           <span
             className={cn(
@@ -186,8 +170,11 @@ export default function AboutLayout() {
           </span>
         </AnimatedGradientTextWithoutBorder>
         <div className="relative flex w-full md:w-[88%] mx-auto flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl after:content-[''] after:bg-gradient-to-r after:from-primary after:from-50% after:to-transparent after:w-10 md:after:w-32 after:h-36 md:after:h-32 after:absolute after:left-0 before:content-[''] before:bg-gradient-to-l before:from-primary before:from-50% before:to-transparent before:w-10 md:before:w-32 before:h-36 md:before:h-32 before:absolute before:right-0 before:z-10">
-          <Marquee pauseOnHover className="[--duration:60s] md:[--duration:120s]">
-            {firstRow.map((item, idx) => (
+          <Marquee
+            pauseOnHover
+            className="[--duration:60s] md:[--duration:120s]"
+          >
+            {certificates.map((item, idx) => (
               <figure
                 key={idx}
                 className={cn(
@@ -198,15 +185,15 @@ export default function AboutLayout() {
                 <div className="flex flex-row items-center gap-2">
                   <div className="flex flex-col">
                     <figcaption className="text-xs md:text-sm font-medium text-white">
-                      {item.provider}
+                      {item.title}
                     </figcaption>
                   </div>
                 </div>
                 <p className="text-[0.7rem] font-light text-white/40 mt-6">
                   Valid until: {item.validUntil}
                 </p>
-                <p className="text-[0.7rem] font-light text-white/40">
-                  {item.title}
+                <p className="text-[0.7rem] font-light text-white/40 line-clamp-1">
+                  {item.program}
                 </p>
               </figure>
             ))}
@@ -214,7 +201,11 @@ export default function AboutLayout() {
         </div>
       </div>
       <div className="px-6 sm:px-16 md:px-36">
-        <div data-aos="zoom-in" data-aos-duration="800" className="text-white text-xl sm:text-2xl md:text-3xl font-poppins flex items-center my-3 uppercase font-bold gap-[1px] tracking-wide">
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="800"
+          className="text-white text-xl sm:text-2xl md:text-3xl font-poppins flex items-center my-3 uppercase font-bold gap-[1px] tracking-wide"
+        >
           <h1>Github C</h1>
           <Link href={"https://github.com/MuhammadMiftaa"}>
             <FaGithub className="rotate-45 hover:rotate-0 duration-500" />
@@ -223,7 +214,11 @@ export default function AboutLayout() {
         </div>
 
         <div className="flex justify-stretch gap-2 md:gap-5 w-full my-5">
-          <div data-aos="zoom-in" data-aos-duration="800" className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative ">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative "
+          >
             <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               Total
             </p>
@@ -232,7 +227,12 @@ export default function AboutLayout() {
               value={totalContributions}
             />
           </div>
-          <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100" className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="100"
+            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative"
+          >
             <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               This Week
             </p>
@@ -241,7 +241,12 @@ export default function AboutLayout() {
               value={thisWeekContributions}
             />
           </div>
-          <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200" className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="200"
+            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative"
+          >
             <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               Best Day
             </p>
@@ -250,7 +255,12 @@ export default function AboutLayout() {
               value={bestDayContributions}
             />
           </div>
-          <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300" className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="300"
+            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative"
+          >
             <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
               Average
             </p>
@@ -265,10 +275,19 @@ export default function AboutLayout() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
-          <div data-aos="zoom-in" data-aos-duration="800" className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-[100%]">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-[100%]"
+          >
             <GithubCalendar username="MuhammadMiftaa" />
           </div>
-          <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100" className="flex flex-row md:flex-col bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent border border-gray-500 rounded-xl justify-around items-center w-full content-center">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="100"
+            className="flex flex-row md:flex-col bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent border border-gray-500 rounded-xl justify-around items-center w-full content-center"
+          >
             <CardContainer
               className="flex flex-col items-center cursor-pointer"
               containerClassName="py-4"
@@ -317,9 +336,6 @@ export default function AboutLayout() {
                     </svg>
                   </div>
                 </CardItem>
-                {/* <h1 className="-mt-1.5 font-urbanist text-gray-300 font-light text-[.6rem] text-center">
-                  Codewars
-                </h1> */}
               </CardBody>
             </CardContainer>
             <CardContainer
@@ -336,9 +352,6 @@ export default function AboutLayout() {
                     height={60}
                   />
                 </CardItem>
-                {/* <h1 className="font-urbanist text-gray-300 font-light text-[.6rem] text-center">
-                  Leetcode
-                </h1> */}
               </CardBody>
             </CardContainer>
           </div>
@@ -347,42 +360,3 @@ export default function AboutLayout() {
     </div>
   );
 }
-
-export const firstRow = [
-  {
-    provider: "Participate in Udemy Online Course",
-    title: "React - The Complete Guide",
-    date: "2021",
-    validUntil: "2022",
-  },
-  {
-    provider: "Participate in Udemy Online Course",
-    title: "NextJS - The Complete Guide",
-    date: "2021",
-    validUntil: "2022",
-  },
-  {
-    provider: "Participate in Udemy Online Course",
-    title: "TailwindCSS - The Complete Guide",
-    date: "2021",
-    validUntil: "2022",
-  },
-  {
-    provider: "Participate in Udemy Online Course",
-    title: "JavaScript - The Complete Guide",
-    date: "2021",
-    validUntil: "2022",
-  },
-  {
-    provider: "Participate in Udemy Online Course",
-    title: "CSS - The Complete Guide",
-    date: "2021",
-    validUntil: "2022",
-  },
-  {
-    provider: "Participate in Udemy Online Course",
-    title: "HTML - The Complete Guide",
-    date: "2021",
-    validUntil: "2022",
-  },
-];
