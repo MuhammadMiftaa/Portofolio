@@ -11,10 +11,8 @@ export default async function handler(
   if (method === "GET") {
     try {
       await mongooseConnect();
-      console.log("MongoDB connected successfully!");
 
       const data = await Project.find();
-      console.log("Data fetched successfully:", data);
 
       res.status(200).json({
         statusCode: 200,

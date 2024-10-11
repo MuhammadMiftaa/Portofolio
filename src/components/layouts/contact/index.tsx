@@ -125,7 +125,7 @@ const content = (
       <LinkPreview
         className="text-white"
         url="https://www.yusufs.me/"
-        imageSrc="/inspired1.png"
+        imageSrc="/footer-img/inspired1.png"
         isStatic={true}
       >
         Yusuf Saputra
@@ -134,7 +134,7 @@ const content = (
       <LinkPreview
         className="text-white"
         url="https://www.vickyadrii.my.id/"
-        imageSrc="/inspired2.png"
+        imageSrc="/footer-img/inspired2.png"
         isStatic={true}
       >
         Vicky Herdiansyah Adri
@@ -143,7 +143,7 @@ const content = (
       <LinkPreview
         className="text-white"
         url="https://aafrzl.my.id/"
-        imageSrc="/inspired3.png"
+        imageSrc="/footer-img/inspired3.png"
         isStatic={true}
       >
         Afrizal Mufriz Fouji

@@ -22,6 +22,7 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <motion.div
+        key={idx}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
