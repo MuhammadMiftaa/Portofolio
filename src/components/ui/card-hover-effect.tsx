@@ -22,7 +22,7 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <motion.div
-        key={idx}
+          key={idx}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -32,9 +32,6 @@ export const HoverEffect = ({
           }}
         >
           <Link
-            // data-aos="fade-up"
-            // data-aos-duration="1000"
-            // data-aos-delay={(idx + 1) * 100}
             href={item?.link}
             key={item?.link}
             className="relative group  block p-2 h-full w-fit"
@@ -58,11 +55,7 @@ export const HoverEffect = ({
                 />
               )}
             </AnimatePresence>
-            <Card>
-              {item.icon}
-              {/* <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.icon}</CardDescription> */}
-            </Card>
+            <Card>{item.icon}</Card>
           </Link>
         </motion.div>
       ))}

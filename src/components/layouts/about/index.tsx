@@ -16,6 +16,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import { CertificateType } from "@/types/CertificateType";
 import { TechType } from "@/types/TechType";
+import NumberTickerContainer from "@/components/template/number-ticker-container";
 
 export default function AboutLayout() {
   let fetcher = async (url: string) => fetch(url).then((res) => res.json());
@@ -47,43 +48,59 @@ export default function AboutLayout() {
   // FETCH DATA TECH 🥽
 
   // FETCH DATA GITHUB ⚽
-  const [githubAllData, setGithubAllData] = useState<any>({});
-  const [totalContributions, setTotalContributions] = useState<number>(0);
-  const [thisWeekContributions, setThisWeekContributions] = useState<number>(0);
-  const [bestDayContributions, setBestDayContributions] = useState<number>(0);
-  const [averageContributions, setAverageContributions] = useState<number>(0);
+  type GithubContributionType = {
+    title: string;
+    value: number;
+  };
+
+  const [githubContributions, setGithubContributions] = useState<
+    GithubContributionType[]
+  >([]);
 
   useEffect(() => {
     FetchGithub().then((res) => {
       const githubData = res.data;
-      setGithubAllData(githubData);
+      const githubContributionsArray: GithubContributionType[] = [];
 
-      const totalContributions =
-        githubData.contributionsCollection.contributionCalendar
-          .totalContributions;
-      setTotalContributions(totalContributions);
+      githubContributionsArray.push({
+        title: "Total",
+        value:
+          githubData.contributionsCollection.contributionCalendar
+            .totalContributions,
+      });
 
-      const weeks =
-        githubData.contributionsCollection.contributionCalendar.weeks;
-      const lastWeekContributions = weeks[
-        weeks.length - 1
-      ].contributionDays.reduce(
-        (acc: number, curr: any) => acc + curr.contributionCount,
-        0
-      );
-      setThisWeekContributions(lastWeekContributions);
+      githubContributionsArray.push({
+        title: "This Week",
+        value: githubData.contributionsCollection.contributionCalendar.weeks[
+          githubData.contributionsCollection.contributionCalendar.weeks.length -
+            1
+        ].contributionDays.reduce(
+          (acc: number, curr: any) => acc + curr.contributionCount,
+          0
+        ),
+      });
 
       let bestDay = 0;
-      weeks.forEach((week: any) => {
-        week.contributionDays.forEach((day: any) => {
-          if (day.contributionCount > bestDay) {
-            bestDay = day.contributionCount;
-          }
-        });
-      });
-      setBestDayContributions(bestDay);
+      githubData.contributionsCollection.contributionCalendar.weeks.forEach(
+        (week: any) => {
+          week.contributionDays.forEach((day: any) => {
+            if (day.contributionCount > bestDay) {
+              bestDay = day.contributionCount;
+            }
+          });
+        }
+      );
+      githubContributionsArray.push({ title: "Best Day", value: bestDay });
 
-      setAverageContributions(totalContributions / 365);
+      githubContributionsArray.push({
+        title: "Average",
+        value: Math.ceil(
+          githubData.contributionsCollection.contributionCalendar
+            .totalContributions / 365
+        ),
+      });
+
+      setGithubContributions(githubContributionsArray);
     });
   }, []);
   // FETCH DATA GITHUB ⚽
@@ -139,7 +156,9 @@ export default function AboutLayout() {
                 <div
                   key={idx}
                   className={`rounded-xl overflow-hidden w-10 h-10 ${
-                    item.name === "NextJS" || item.name === "Github" ? "invert" : ""
+                    item.name === "NextJS" || item.name === "Github"
+                      ? "invert"
+                      : ""
                   }`}
                 >
                   <Image
@@ -214,64 +233,13 @@ export default function AboutLayout() {
         </div>
 
         <div className="flex justify-stretch gap-2 md:gap-5 w-full my-5">
-          <div
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative "
-          >
-            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
-              Total
-            </p>
-            <NumberTicker
-              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
-              value={totalContributions}
+          {githubContributions.map((item, idx) => (
+            <NumberTickerContainer
+              title={item.title}
+              value={item.value}
+              idx={idx}
             />
-          </div>
-          <div
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="100"
-            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative"
-          >
-            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
-              This Week
-            </p>
-            <NumberTicker
-              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
-              value={thisWeekContributions}
-            />
-          </div>
-          <div
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="200"
-            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative"
-          >
-            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
-              Best Day
-            </p>
-            <NumberTicker
-              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
-              value={bestDayContributions}
-            />
-          </div>
-          <div
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="300"
-            className="aspect-square md:h-40 w-full border border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent rounded-xl flex items-center justify-center relative"
-          >
-            <p className="text-gray-400 font-urbanist text-xs sm:text-base md:text-lg absolute top-2 left-2">
-              Average
-            </p>
-            <NumberTicker
-              className="text-white font-poppins text-3xl sm:text-4xl md:text-6xl pt-3 tracking-tight"
-              value={averageContributions}
-            />
-            <span className="text-gray-400 text-sm sm:text-base md:text-xl font-urbanist pt-8">
-              /day
-            </span>
-          </div>
+          ))}
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
@@ -294,7 +262,7 @@ export default function AboutLayout() {
             >
               <CardBody className="relative group/card h-10 w-full">
                 <CardItem translateZ={200} className="w-full">
-                  <div className="rounded-xl overflow-hidden w-fit">
+                  <Link href={"https://www.codewars.com/users/MuhammadMiftaa"} className="rounded-xl overflow-hidden w-fit">
                     <svg
                       className="rounded-xl w-full h-full"
                       xmlns="http://www.w3.org/2000/svg"
@@ -334,7 +302,7 @@ export default function AboutLayout() {
                         d="M23.567,23.75c0.911-2.506,3.574-4.464,6.495-4.553c1.451-0.09,2.935,0.286,4.232,0.975 c1.263,0.74,2.412,1.777,3.117,3.088c1.514,2.564,1.396,5.955-0.202,8.368c-1.547,2.453-4.514,3.804-7.146,3.374l-0.001-1 c2.275-0.393,4.11-1.804,4.977-3.627c0.857-1.82,0.798-3.968-0.21-5.628c-0.963-1.661-2.779-2.804-4.765-2.933 c-1.998-0.162-4.103,0.7-5.631,2.436L23.567,23.75z"
                       ></path>
                     </svg>
-                  </div>
+                  </Link>
                 </CardItem>
               </CardBody>
             </CardContainer>
@@ -344,13 +312,15 @@ export default function AboutLayout() {
             >
               <CardBody className="relative group/card h-10 w-full">
                 <CardItem translateZ={200} className="w-full">
-                  <Image
-                    className="w-[40px] rounded-xl"
-                    src={"/leetcode.png"}
-                    alt="leetcode-icon"
-                    width={60}
-                    height={60}
-                  />
+                  <Link href={"https://leetcode.com/u/muhammadmiftaa/"}>
+                    <Image
+                      className="w-[40px] rounded-xl"
+                      src={"/leetcode.png"}
+                      alt="leetcode-icon"
+                      width={60}
+                      height={60}
+                    />
+                  </Link>
                 </CardItem>
               </CardBody>
             </CardContainer>

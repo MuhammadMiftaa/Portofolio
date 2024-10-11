@@ -8,6 +8,7 @@ import { List } from "flowbite-react";
 import { HiCheckCircle } from "react-icons/hi";
 import useSWR from "swr";
 import { ExperienceType } from "@/types/ExperienceType";
+import Pill from "@/components/ui/pill";
 
 export default function ExperienceLayout() {
   // FETCH EXPERIENCE DATA ⚽
@@ -35,9 +36,9 @@ export default function ExperienceLayout() {
       <div className="flex flex-col px-6 sm:px-16 md:px-36 mt-10 md:mt-16">
         {experience.map((item, idx) => (
           <div
-          data-aos={(idx + 1) % 2 === 0 ? "fade-up-right" : "fade-up-left"}
-          data-aos-duration="1000"
-          data-aos-delay={((idx + 2) % 2) * 200}
+            data-aos={(idx + 1) % 2 === 0 ? "fade-up-right" : "fade-up-left"}
+            data-aos-duration="1000"
+            data-aos-delay={((idx + 2) % 2) * 200}
             key={idx}
             className="relative py-4 px-6 flex h-fit w-full flex-col overflow-hidden rounded-lg border border-gray-700 bg-background md:shadow-xl"
           >
@@ -73,12 +74,7 @@ export default function ExperienceLayout() {
             </div>
             <div className="flex gap-1 sm:gap-2 mt-4 font-light font-urbanist flex-wrap">
               {item.techStack.map((tech, idx) => (
-                <span
-                  key={idx}
-                  className="bg-[#272729] text-slate-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-600 "
-                >
-                  {tech}
-                </span>
+                <Pill tech={tech} idx={idx} />
               ))}
             </div>
             <div>

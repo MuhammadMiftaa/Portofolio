@@ -1,5 +1,6 @@
 import AnimatedGradientTextWithoutBorder from "@/components/ui/animated-gradient-text-without-border";
 import { BorderBeam } from "@/components/ui/border-beam";
+import Pill from "@/components/ui/pill";
 import { cn } from "@/lib/utils";
 import { ProjectType } from "@/types/ProjectType";
 import Image from "next/image";
@@ -57,12 +58,7 @@ export default function ProjectsLayout() {
             </p>
             <div className="flex gap-1 md:gap-2 mt-2 sm:mt-1 md:mt-4 font-light pr-8 flex-wrap">
               {item.techStack.map((tech, idx) => (
-                <span
-                  key={idx}
-                  className="bg-[#272729] font-poppins text-slate-300 text-[0.7rem] sm:text-[0.65rem] md:text-xs font-medium px-2 md:px-3 py-0.5 md:py-1 rounded-full border border-gray-600"
-                >
-                  {tech}
-                </span>
+                <Pill tech={tech} idx={idx} />
               ))}
             </div>
 

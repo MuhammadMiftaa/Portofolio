@@ -1,10 +1,9 @@
+import Footer from "@/components/template/footer";
 import AnimatedGradientTextWithoutBorder from "@/components/ui/animated-gradient-text-without-border";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LinkPreview } from "@/components/ui/link-preview";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import { Popover } from "flowbite-react";
 import React from "react";
 
 export default function ContactLayout() {
@@ -70,87 +69,11 @@ export default function ContactLayout() {
           Send message
           <BottomGradient />
         </button>
-
-        {/* <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent my-8 h-[1px] w-full" /> */}
-
-        {/* <div className="flex flex-col space-y-4">
-            <button
-              className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-zinc-900 shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-              type="submit"
-            >
-              <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-              <span className="text-neutral-300 text-sm">GitHub</span>
-              <BottomGradient />
-            </button>
-            <button
-              className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-zinc-900 shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-              type="submit"
-            >
-              <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-              <span className="text-neutral-300 text-sm">Google</span>
-              <BottomGradient />
-            </button>
-            <button
-              className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-zinc-900 shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-              type="submit"
-            >
-              <IconBrandOnlyfans className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-              <span className="text-neutral-300 text-sm">OnlyFans</span>
-              <BottomGradient />
-            </button>
-          </div> */}
       </form>
-      <div className="text-sm md:text-base mt-16 flex flex-col md:flex-row items-center justify-between w-full z-10 text-slate-300">
-        <h1 className="font-urbanist italic font-light">
-          Design Inspired by{" "}
-          <Popover content={content} trigger="hover">
-            <span className="font-bold cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-color-1 hover:to-color-2 duration-300 hover:duration-300 text-white">
-              Their Unique Style.
-            </span>
-          </Popover>
-        </h1>
-        <h2 className="font-urbanist font-light">
-          Created by{" "}
-          <span className="text-white font-bold">Muhammad Mifta.</span>{" "}
-          Copyright @ 2024.
-        </h2>
-      </div>
+      <Footer />
     </div>
   );
 }
-
-const content = (
-  <div className="text-sm bg-black py-1 px-2">
-    <p className="font-bold font-poppins">
-      <LinkPreview
-        className="text-white"
-        url="https://www.yusufs.me/"
-        imageSrc="/footer-img/inspired1.png"
-        isStatic={true}
-      >
-        Yusuf Saputra
-      </LinkPreview>
-      ,{" "}
-      <LinkPreview
-        className="text-white"
-        url="https://www.vickyadrii.my.id/"
-        imageSrc="/footer-img/inspired2.png"
-        isStatic={true}
-      >
-        Vicky Herdiansyah Adri
-      </LinkPreview>
-      , and{" "}
-      <LinkPreview
-        className="text-white"
-        url="https://aafrzl.my.id/"
-        imageSrc="/footer-img/inspired3.png"
-        isStatic={true}
-      >
-        Afrizal Mufriz Fouji
-      </LinkPreview>
-    </p>
-  </div>
-);
 
 const BottomGradient = () => {
   return (
