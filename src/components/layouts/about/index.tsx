@@ -179,19 +179,26 @@ export default function AboutLayout() {
         data-aos-duration="1000"
         className="flex flex-col items-center md:items-start"
       >
-        <AnimatedGradientTextWithoutBorder className="md:ml-[6.5rem] mt-8">
-          <span
-            className={cn(
-              `text-lg sm:text-xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
-            )}
-          >
-            Training and Certification
-          </span>
-        </AnimatedGradientTextWithoutBorder>
+        <div className="flex w-full justify-between items-center  mt-8">
+          <AnimatedGradientTextWithoutBorder className="md:ml-[6.5rem]">
+            <span
+              className={cn(
+                `text-lg sm:text-xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              )}
+            >
+              Training and Certification
+            </span>
+          </AnimatedGradientTextWithoutBorder>
+          <Link href={"/certificate"} className="p-0.5 bg-gradient-to-r from-color-1 to-color-2 rounded-[0.9rem] mr-32 cursor-pointer hover:p-0 duration-500">
+            <h1 className="py-2 px-5 rounded-xl bg-primary text-zinc-500 hover:text-zinc-200 hover:bg-zinc-950 duration-700 font-urbanist">
+              Explore
+            </h1>
+          </Link>
+        </div>
         <div className="relative flex w-full md:w-[88%] mx-auto flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl after:content-[''] after:bg-gradient-to-r after:from-primary after:from-50% after:to-transparent after:w-10 md:after:w-32 after:h-36 md:after:h-32 after:absolute after:left-0 before:content-[''] before:bg-gradient-to-l before:from-primary before:from-50% before:to-transparent before:w-10 md:before:w-32 before:h-36 md:before:h-32 before:absolute before:right-0 before:z-10">
           <Marquee
             pauseOnHover
-            className="[--duration:60s] md:[--duration:120s]"
+            className="[--duration:200s] md:[--duration:320s]"
           >
             {certificates.map((item, idx) => (
               <figure
@@ -203,13 +210,13 @@ export default function AboutLayout() {
               >
                 <div className="flex flex-row items-center gap-2">
                   <div className="flex flex-col">
-                    <figcaption className="text-xs md:text-sm font-medium text-white">
+                    <figcaption className="text-xs md:text-sm font-medium text-white line-clamp-1">
                       {item.title}
                     </figcaption>
                   </div>
                 </div>
                 <p className="text-[0.7rem] font-light text-white/40 mt-6">
-                  Valid until: {item.validUntil}
+                  Valid until: {item.validUntil ? item.validUntil : "—"}
                 </p>
                 <p className="text-[0.7rem] font-light text-white/40 line-clamp-1">
                   {item.program}
@@ -262,7 +269,10 @@ export default function AboutLayout() {
             >
               <CardBody className="relative group/card h-10 w-full">
                 <CardItem translateZ={200} className="w-full">
-                  <Link href={"https://www.codewars.com/users/MuhammadMiftaa"} className="rounded-xl overflow-hidden w-fit">
+                  <Link
+                    href={"https://www.codewars.com/users/MuhammadMiftaa"}
+                    className="rounded-xl overflow-hidden w-fit"
+                  >
                     <svg
                       className="rounded-xl w-full h-full"
                       xmlns="http://www.w3.org/2000/svg"

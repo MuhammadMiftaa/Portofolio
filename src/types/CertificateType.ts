@@ -5,4 +5,5 @@ export type CertificateType = {
     validUntil: string;
     isActive: boolean;
     image: string;
+    organizer: string;
 }
