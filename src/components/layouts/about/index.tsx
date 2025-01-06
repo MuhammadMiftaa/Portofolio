@@ -141,11 +141,7 @@ export default function AboutLayout() {
           className="relative"
         >
           <p className="text-white w-full text-sm sm:text-base md:text-lg text-justify tracking-wide font-urbanist mt-2 md:mt-5">
-            I am a Frontend Web Developer with 1 year of experience. I am a
-            self-taught developer who is passionate about making the web a
-            better place. I have experience working with modern frontend
-            technologies like React, NextJS, and TailwindCSS. I am always eager
-            to learn new things and improve my skills.
+            I am a Junior Web Developer with expertise in both Frontend and Backend development. I specialize in modern technologies like JavaScript, TypeScript, React, Laravel, and Golang. With experience in database such as MySQL, PostgreSQL, Redis, and MongoDB, I am passionate about building efficient, scalable, and user-friendly web solutions. I am continuously learning and committed to improving my skills to stay ahead in the ever-evolving field of web development.
           </p>
           <div className="flex flex-col">
             <h1 className="text-slate-400 font-urbanist italic mt-2 md:mt-5 mb-1.5 text-sm sm:text-base w-full text-center sm:text-start mr-10 md:mr-0">
