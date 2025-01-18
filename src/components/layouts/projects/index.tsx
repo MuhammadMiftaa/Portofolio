@@ -77,7 +77,7 @@ export default function ProjectsLayout() {
               </a>
 
               <div
-                className="absolute w-fit bottom-24 md:bottom-16 right-12 md:right-14 cursor-pointer"
+                className={`absolute w-fit bottom-24 md:bottom-16 right-12 md:right-14 cursor-pointer                   ${item.webViewImage ? "block" : "hidden"}`}
                 onClick={() => {
                   setActiveModal(true);
                   setActiveImage(item.webViewImage);
