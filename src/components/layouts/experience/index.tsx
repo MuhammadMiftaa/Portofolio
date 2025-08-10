@@ -33,7 +33,7 @@ export default function ExperienceLayout() {
           Experience
         </span>
       </AnimatedGradientText>
-      <div className="flex flex-col px-6 sm:px-16 md:px-36 mt-10 md:mt-16">
+      <div className="flex flex-col gap-5 px-6 sm:px-16 md:px-36 mt-10 md:mt-16">
         {experience.map((item, idx) => (
           <div
             data-aos={(idx + 1) % 2 === 0 ? "fade-up-right" : "fade-up-left"}
@@ -46,7 +46,7 @@ export default function ExperienceLayout() {
               <div className="flex gap-5 items-center">
                 <div className="bg-white rounded-full w-fit h-fit">
                   <Image
-                    className="rounded-full sm:h-16 sm:w-16 "
+                    className="rounded-full sm:h-16 sm:w-16 object-contain"
                     src={item.companyLogo}
                     alt={item.company}
                     width={100}

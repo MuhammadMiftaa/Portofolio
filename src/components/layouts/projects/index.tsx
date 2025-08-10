@@ -41,7 +41,7 @@ export default function ProjectsLayout() {
         </span>
       </AnimatedGradientTextWithoutBorder>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 md:gap-12 justify-stretch px-6 md:px-16 mt-5 overflow-hidden">
-        {projects.map((item, idx) => (
+        {projects.map((item, idx) => item.show && (
           <div
             data-aos={(idx + 1) % 2 === 0 ? "fade-up-left" : "fade-up-right"}
             data-aos-duration="1000"
@@ -56,7 +56,7 @@ export default function ProjectsLayout() {
             <p className="font-urbanist text-slate-500 text-sm md:text-base mt-1 md:mt-2 pr-8 line-clamp-3 md:line-clamp-2 ">
               {item.description}
             </p>
-            <div className="flex gap-1 md:gap-2 mt-2 sm:mt-1 md:mt-4 font-light pr-8 flex-wrap">
+            <div className="flex justify-end gap-1 md:gap-2 mt-2 sm:mt-1 md:mt-4 font-light pr-8 flex-wrap">
               {item.techStack.map((tech, idx) => (
                 <Pill tech={tech} idx={idx} />
               ))}
@@ -89,7 +89,7 @@ export default function ProjectsLayout() {
                       width={500}
                       height={500}
                       src={item.webViewImage}
-                      className="h-[104px] md:h-[156px] w-full rounded-lg"
+                      className="h-[104px] md:h-[156px] w-full rounded-lg object-cover"
                       alt=""
                     />
                   </div>
@@ -118,7 +118,7 @@ export default function ProjectsLayout() {
                       height={500}
                       width={500}
                       src={item.mobileViewImage}
-                      className={`w-[91px] h-[191px] md:w-[136px] md:h-[286px] duration-300`}
+                      className={`w-[91px] h-[191px] md:w-[136px] md:h-[286px] duration-300 object-cover`}
                       alt=""
                     />
                   </div>

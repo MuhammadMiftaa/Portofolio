@@ -24,12 +24,13 @@ export default function CertificatePage() {
 
   const [activeTab, setActiveTab] = useState("Codepolitan");
   const [visibleItems, setVisibleItems] = useState<
-    Record<"Codepolitan" | "Dicoding" | "MySkill" | "Ruangguru", number>
+    Record<"Codepolitan" | "Dicoding" | "MySkill" | "Ruangguru" | "BNSP", number>
   >({
     Codepolitan: 6,
     Dicoding: 6,
     MySkill: 6,
     Ruangguru: 6,
+    BNSP: 6,
   });
 
   const handleLoadMore = (tab: string) => {
@@ -49,7 +50,7 @@ export default function CertificatePage() {
       <Tabs defaultValue="codepolitan" className="w-full">
         <div className="flex justify-center">
           <TabsList className="justify-between flex-wrap w-3/4 mx-auto my-10 text-neutral-300">
-            {["Codepolitan", "Dicoding", "MySkill", "Ruangguru"].map((tab) => (
+            {["Codepolitan", "Dicoding", "MySkill", "Ruangguru", "BNSP"].map((tab) => (
               <TabsTrigger
                 className="group"
                 value={tab.toLowerCase()}
@@ -65,7 +66,7 @@ export default function CertificatePage() {
             ))}
           </TabsList>
         </div>
-        {["Codepolitan", "Dicoding", "MySkill", "Ruangguru"].map((tab) => {
+        {["Codepolitan", "Dicoding", "MySkill", "Ruangguru", "BNSP"].map((tab) => {
           const filteredCertificates = certificates.filter(
             (c) => c.organizer === tab
           );

@@ -158,7 +158,7 @@ export default function AboutLayout() {
                   }`}
                 >
                   <Image
-                    className="w-full h-full"
+                    className="w-full h-full object-contain"
                     src={item.logo}
                     alt={item.name}
                     width={100}

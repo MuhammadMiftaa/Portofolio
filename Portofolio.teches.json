@@ -1,0 +1,72 @@
+[
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a86b"
+    },
+    "name": "Javascript",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563550/javascript.svg"
+  },
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a86c"
+    },
+    "name": "Typescript",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563536/typescript.svg"
+  },
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a86d"
+    },
+    "name": "TailwindCSS",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563537/tailwindcss.svg"
+  },
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a86e"
+    },
+    "name": "React",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563542/react.svg"
+  },
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a86f"
+    },
+    "name": "NextJS",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563546/nextjs.svg"
+  },
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a870"
+    },
+    "name": "MongoDB",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563548/mongodb.svg"
+  },
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a871"
+    },
+    "name": "PostgreSQL",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563544/postgresql.svg"
+  },
+  {
+    "_id": {
+      "$oid": "67075d045572fca8bae6a872"
+    },
+    "name": "Github",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563555/github.svg"
+  },
+  {
+    "_id": {
+      "$oid": "6735620903bb20cb534c7d4b"
+    },
+    "name": "Golang",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563552/golang.svg"
+  },
+  {
+    "_id": {
+      "$oid": "6770fc8e7614120505f9abb1"
+    },
+    "name": "Redis",
+    "logo": "https://res.cloudinary.com/dblibr1t2/image/upload/f_auto,q_auto,w_400/v1754563540/redis.svg"
+  }
+]

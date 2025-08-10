@@ -6,4 +6,5 @@ export type ProjectType = {
   mobileViewImage: string;
   url: string;
   githubLink: string;
+  show: boolean
 };
