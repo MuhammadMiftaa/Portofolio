@@ -37,8 +37,18 @@ debug
 .git
 .gitignore
 README.md
+*.md
 
 # Docker
 Dockerfile
 .dockerignore
 docker-compose.yml
+docker-compose.*.yml
+
+# CI/CD
+.gitlab-ci.yml
+.github
+
+# Cache
+.cache
+*.cache
