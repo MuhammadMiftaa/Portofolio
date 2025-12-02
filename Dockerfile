@@ -34,7 +34,7 @@ FROM fholzer/nginx-brotli:v1.28.0 AS runner
 WORKDIR /app
 
 # Install Node.js and Bun in the nginx image
-RUN apk add --no-cache nodejs npm curl unzip
+RUN apk add --no-cache nodejs npm curl unzip bash
 RUN curl -fsSL https://bun.sh/install | bash
 ENV PATH="/root/.bun/bin:${PATH}"
 
