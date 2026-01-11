@@ -49,8 +49,8 @@ ENV NODE_ENV=production \
     MONGODB_URI=$MONGODB_URI \
     NEXT_TELEMETRY_DISABLED=1
 
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+RUN groupadd -g 1001 -r nodejs && \
+    useradd -u 1001 -r -g nodejs -s /bin/sh -m nextjs
 
 COPY --from=builder /app/public ./public
 
