@@ -45,7 +45,7 @@ export default function HomeLayout() {
         </motion.div>
         <NeonGradientCard className="w-full sm:max-w-md md:max-w-sm mt-4 sm:mt-6 md:mt-8 items-center justify-center text-center text-white font-poppins">
           <h1 className="text-xs sm:text-lg md:text-xl text-nowrap py-0.5 px-2 md:p-0">
-            Junior Web Developer
+            Backend Developer
           </h1>
         </NeonGradientCard>
       </div>

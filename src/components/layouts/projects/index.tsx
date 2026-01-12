@@ -16,9 +16,9 @@ export default function ProjectsLayout() {
   const { data, error, isLoading } = useSWR("/api/project", fetcher);
   useEffect(() => {
     if (data) {
-      setProjects(data.data);
+      setProjects(data.data.filter((item: ProjectType) => item.show));
     }
-  });
+  }, [data]);
   // FETCH PROJECTS DATA ⚽
 
   const [activeModal, setActiveModal] = useState<boolean>(false);
@@ -41,11 +41,11 @@ export default function ProjectsLayout() {
         </span>
       </AnimatedGradientTextWithoutBorder>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 md:gap-12 justify-stretch px-6 md:px-16 mt-5 overflow-hidden">
-        {projects.map((item, idx) => item.show && (
+        {projects.map((item, idx) => (
           <div
-            data-aos={(idx + 1) % 2 === 0 ? "fade-up-left" : "fade-up-right"}
+            data-aos={idx % 2 === 0 ? "fade-up-right" : "fade-up-left"}
             data-aos-duration="1000"
-            data-aos-delay={((idx + 2) % 2) * 200}
+            data-aos-delay={(idx % 2) * 200}
             key={idx}
             className="h-[30rem] md:h-full md:aspect-square relative overflow-hidden border border-gray-700 pt-8 pl-8"
             style={{ borderRadius: "0 2rem 0 2rem" }}
@@ -58,7 +58,7 @@ export default function ProjectsLayout() {
             </p>
             <div className="flex justify-end gap-1 md:gap-2 mt-2 sm:mt-1 md:mt-4 font-light pr-8 flex-wrap">
               {item.techStack.map((tech, idx) => (
-                <Pill tech={tech} idx={idx} />
+                <Pill tech={tech} idx={idx} key={idx} />
               ))}
             </div>
 

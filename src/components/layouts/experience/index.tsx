@@ -65,16 +65,16 @@ export default function ExperienceLayout() {
                   item.startDate.split(" ")[2],
                 ].join(" ")}{" "}
                 -
-                {[
+                {" "}{[
                   item.endDate.split(" ")[0],
                   item.endDate.split(" ")[1].slice(0, 3),
                   item.endDate.split(" ")[2],
-                ].join(" ")}{" "}
+                ].join(" ")}
               </h3>
             </div>
             <div className="flex gap-1 sm:gap-2 mt-4 font-light font-urbanist flex-wrap">
               {item.techStack.map((tech, idx) => (
-                <Pill tech={tech} idx={idx} />
+                <Pill tech={tech} idx={idx} key={idx} />
               ))}
             </div>
             <div>

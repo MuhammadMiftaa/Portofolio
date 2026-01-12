@@ -127,7 +127,7 @@ export default function ContactLayout() {
           value={`MIFTDEV | ${userForm.Subject} from ${userForm.Name} - ${userForm.Email}`}
         />{" "}
         {/* Subject Email */}
-        <input type="hidden" name="_next" value="https://miftdev.my.id" />{" "}
+        <input type="hidden" name="_next" value={process.env.NEXT_PUBLIC_APP_URL} />{" "}
         {/* Redirect URL after submission */}
         <input type="text" name="_honey" className="hidden" />{" "}
         {/* Honeypot for spam */}
