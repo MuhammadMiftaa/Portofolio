@@ -1,0 +1,14 @@
+# Robots.txt for Muhammad Mifta Portfolio
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Disallow admin or API routes
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://miv.best/sitemap.xml
+
+# Crawl-delay (optional, some bots respect this)
+Crawl-delay: 1

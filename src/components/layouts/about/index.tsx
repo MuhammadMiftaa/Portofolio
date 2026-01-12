@@ -141,7 +141,13 @@ export default function AboutLayout() {
           className="relative"
         >
           <p className="text-white w-full text-sm sm:text-base md:text-lg text-justify tracking-wide font-urbanist mt-2 md:mt-5">
-            I am a Junior Web Developer with expertise in both Frontend and Backend development. I specialize in modern technologies like JavaScript, TypeScript, React, Laravel, and Golang. With experience in database such as MySQL, PostgreSQL, Redis, and MongoDB, I am passionate about building efficient, scalable, and user-friendly web solutions. I am continuously learning and committed to improving my skills to stay ahead in the ever-evolving field of web development.
+            I am a Junior Web Developer with expertise in both Frontend and
+            Backend development. I specialize in modern technologies like
+            JavaScript, Golang, React, Laravel, and Golang. With experience in
+            database such as MySQL, PostgreSQL, Redis, and MongoDB, I am
+            passionate about building efficient, scalable, and user-friendly web
+            solutions. I am continuously learning and committed to improving my
+            skills to stay ahead in the ever-evolving field of web development.
           </p>
           <div className="flex flex-col">
             <h1 className="text-slate-400 font-urbanist italic mt-2 md:mt-5 mb-1.5 text-sm sm:text-base w-full text-center sm:text-start mr-10 md:mr-0">
@@ -185,7 +191,10 @@ export default function AboutLayout() {
               Training and Certification
             </span>
           </AnimatedGradientTextWithoutBorder>
-          <Link href={"/certificate"} className="p-0.5 bg-gradient-to-r from-color-1 to-color-2 rounded-[0.9rem] mr-32 cursor-pointer hover:p-0 duration-500">
+          <Link
+            href={"/certificate"}
+            className="p-0.5 bg-gradient-to-r from-color-1 to-color-2 rounded-[0.9rem] mr-32 cursor-pointer hover:p-0 duration-500"
+          >
             <h1 className="py-2 px-5 rounded-xl bg-primary text-zinc-500 hover:text-zinc-200 hover:bg-zinc-950 duration-700 font-urbanist">
               Explore
             </h1>
