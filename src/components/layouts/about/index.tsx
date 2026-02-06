@@ -25,7 +25,7 @@ export default function AboutLayout() {
   const [certificates, setCertificates] = useState<CertificateType[]>([]);
   const { data: dataCertificate, isLoading: isLoadingCertificate } = useSWR(
     "/api/certificate",
-    fetcher
+    fetcher,
   );
   useEffect(() => {
     if (dataCertificate) {
@@ -38,7 +38,7 @@ export default function AboutLayout() {
   const [tech, setTech] = useState<TechType[]>([]);
   const { data: dataTech, isLoading: isLoadingTech } = useSWR(
     "/api/tech",
-    fetcher
+    fetcher,
   );
   useEffect(() => {
     if (dataTech) {
@@ -76,7 +76,7 @@ export default function AboutLayout() {
             1
         ].contributionDays.reduce(
           (acc: number, curr: any) => acc + curr.contributionCount,
-          0
+          0,
         ),
       });
 
@@ -88,7 +88,7 @@ export default function AboutLayout() {
               bestDay = day.contributionCount;
             }
           });
-        }
+        },
       );
       githubContributionsArray.push({ title: "Best Day", value: bestDay });
 
@@ -96,7 +96,7 @@ export default function AboutLayout() {
         title: "Average",
         value: Math.ceil(
           githubData.contributionsCollection.contributionCalendar
-            .totalContributions / 365
+            .totalContributions / 365,
         ),
       });
 
@@ -113,7 +113,7 @@ export default function AboutLayout() {
       <AnimatedGradientText className="md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(
-            `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `
+            `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `,
           )}
         >
           About me
@@ -149,22 +149,22 @@ export default function AboutLayout() {
             solutions. I am continuously learning and committed to improving my
             skills to stay ahead in the ever-evolving field of web development.
           </p>
-          <div className="flex flex-col">
-            <h1 className="text-slate-400 font-urbanist italic mt-2 md:mt-5 mb-1.5 text-sm sm:text-base w-full text-center sm:text-start mr-10 md:mr-0">
+          <div className="flex flex-col w-full">
+            <h1 className="text-slate-400 font-urbanist italic mt-3 sm:mt-4 md:mt-5 mb-2 sm:mb-2.5 md:mb-3 text-xs sm:text-sm md:text-base w-full text-center sm:text-start">
               Technologies I Work With
             </h1>
-            <div className="flex gap-2 items-center w-full justify-center sm:justify-start mr-10 md:mr-0">
+            <div className="flex flex-wrap gap-2 sm:gap-2.5 md:gap-3 items-center w-full justify-center sm:justify-start">
               {tech.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`rounded-xl overflow-hidden w-10 h-10 ${
+                  className={`rounded-lg sm:rounded-xl overflow-hidden w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex-shrink-0 ${
                     item.name === "NextJS" || item.name === "Github"
                       ? "invert"
                       : ""
                   }`}
                 >
                   <Image
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain p-0.5 sm:p-1"
                     src={item.logo}
                     alt={item.name}
                     width={100}
@@ -185,7 +185,7 @@ export default function AboutLayout() {
           <AnimatedGradientTextWithoutBorder className="md:ml-[6.5rem]">
             <span
               className={cn(
-                `text-lg sm:text-xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+                `text-lg sm:text-xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
               )}
             >
               Training and Certification
@@ -205,29 +205,30 @@ export default function AboutLayout() {
             pauseOnHover
             className="[--duration:200s] md:[--duration:320s]"
           >
-            {certificates.map((item, idx) => (
-              <figure
-                key={idx}
-                className={cn(
-                  "relative w-64 md:w-96 cursor-pointer overflow-hidden rounded-xl border px-7 py-5",
-                  "border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent font-poppins"
-                )}
-              >
-                <div className="flex flex-row items-center gap-2">
-                  <div className="flex flex-col">
-                    <figcaption className="text-xs md:text-sm font-medium text-white line-clamp-1">
-                      {item.title}
-                    </figcaption>
+            {certificates.length > 0 &&
+              certificates.map((item, idx) => (
+                <figure
+                  key={idx}
+                  className={cn(
+                    "relative w-64 md:w-96 cursor-pointer overflow-hidden rounded-xl border px-7 py-5",
+                    "border-gray-500 bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent font-poppins",
+                  )}
+                >
+                  <div className="flex flex-row items-center gap-2">
+                    <div className="flex flex-col">
+                      <figcaption className="text-xs md:text-sm font-medium text-white line-clamp-1">
+                        {item.title}
+                      </figcaption>
+                    </div>
                   </div>
-                </div>
-                <p className="text-[0.7rem] font-light text-white/40 mt-6">
-                  Valid until: {item.validUntil ? item.validUntil : "—"}
-                </p>
-                <p className="text-[0.7rem] font-light text-white/40 line-clamp-1">
-                  {item.program}
-                </p>
-              </figure>
-            ))}
+                  <p className="text-[0.7rem] font-light text-white/40 mt-6">
+                    Valid until: {item.validUntil ? item.validUntil : "—"}
+                  </p>
+                  <p className="text-[0.7rem] font-light text-white/40 line-clamp-1">
+                    {item.program}
+                  </p>
+                </figure>
+              ))}
           </Marquee>
         </div>
       </div>
