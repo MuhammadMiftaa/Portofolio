@@ -34,7 +34,7 @@ export default function ProjectsLayout() {
       <AnimatedGradientTextWithoutBorder className="">
         <span
           className={cn(
-            `text-3xl sm:text-4xl md:text-6xl py-1.5 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+            `text-3xl sm:text-4xl md:text-6xl py-1.5 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
           )}
         >
           My Projects
@@ -152,17 +152,19 @@ export default function ProjectsLayout() {
           activeModal ? "opacity-100 z-50" : "opacity-0 -z-10"
         }`}
       >
-        <Image
-          onClick={(event) => event.stopPropagation()}
-          className={`${
-            activeModal ? "scale-100" : "scale-0"
-          } w-[90%] h-auto sm:w-auto sm:h-[80%] md:h-[90%] object-cover md:w-auto duration-300 ease-in-out border border-gray-950`}
-          style={{ boxShadow: "0 0 10px 5px rgba(0,0,0,0.5)" }}
-          src={activeImage}
-          alt="zoom-image"
-          width={500}
-          height={500}
-        />
+        {activeImage && (
+          <Image
+            onClick={(event) => event.stopPropagation()}
+            className={`${
+              activeModal ? "scale-100" : "scale-0"
+            } w-[90%] h-auto sm:w-auto sm:h-[80%] md:h-[90%] object-cover md:w-auto duration-300 ease-in-out border border-gray-950`}
+            style={{ boxShadow: "0 0 10px 5px rgba(0,0,0,0.5)" }}
+            src={activeImage}
+            alt="zoom-image"
+            width={500}
+            height={500}
+          />
+        )}
         <div
           className="p-3 text-white absolute top-2 right-2 md:top-4 md:right-4 cursor-pointer text-2xl md:text-base"
           onClick={() => {

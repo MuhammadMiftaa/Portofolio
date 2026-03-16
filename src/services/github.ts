@@ -1,8 +1,8 @@
 import { GithubGraphQLQuery, GithubUserEndpoint } from "@/constant/Github";
 
 export const FetchGithub = async () => {
-  const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
-  
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
   const res = await fetch(GithubUserEndpoint, {
     method: "POST",
     headers: {

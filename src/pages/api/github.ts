@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next";
+
 const GithubGraphQLQuery = `{
     user(login: "MuhammadMiftaa") {
       contributionsCollection {
@@ -25,26 +27,21 @@ const GithubGraphQLQuery = `{
 
 const GithubUserEndpoint = "https://api.github.com/graphql";
 
-export const FetchGithub = async () => {
-  const NEXT_PUBLIC_GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
-
-  const res = await fetch(GithubUserEndpoint, {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const token = process.env.GITHUB_TOKEN;
+  const result = await fetch(GithubUserEndpoint, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${NEXT_PUBLIC_GITHUB_TOKEN}`,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       query: GithubGraphQLQuery,
     }),
   });
-
-  const status: number = res.status;
-  const responseJson = await res.json();
-
-  if (status > 400) {
-    return { status, data: {} };
-  }
-
-  return { status, data: responseJson.data.user };
-};
+  
+  res.json(await result.json());
+}

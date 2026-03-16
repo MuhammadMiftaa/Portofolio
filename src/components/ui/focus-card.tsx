@@ -31,7 +31,7 @@ export const Card = React.memo(
       }}
       className={cn(
         "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-52 w-full transition-all duration-300 ease-out hover:cursor-pointer",
-        hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
+        hovered !== null && hovered !== index && "blur-sm scale-[0.98]",
       )}
     >
       <Image
@@ -43,7 +43,7 @@ export const Card = React.memo(
       <div
         className={cn(
           "absolute inset-0 bg-black/50 flex items-end py-4 px-4 transition-opacity duration-300",
-          hovered === index ? "opacity-100" : "opacity-0"
+          hovered === index ? "opacity-100" : "opacity-0",
         )}
       >
         <div className="absolute inset-0 text-white flex justify-center items-center flex-col text-4xl">
@@ -57,7 +57,7 @@ export const Card = React.memo(
         </div> */}
       </div>
     </div>
-  )
+  ),
 );
 
 Card.displayName = "Card";
@@ -93,17 +93,19 @@ export function FocusCards({ cards }: { cards: CertificateType[] }) {
           activeModal ? "opacity-100 z-50" : "opacity-0 -z-10"
         }`}
       >
-        <Image
-          onClick={(event) => event.stopPropagation()}
-          className={`${
-            activeModal ? "scale-100" : "scale-0"
-          } w-[90%] h-auto sm:w-auto sm:h-[80%] md:h-[90%] object-cover md:w-auto duration-300 ease-in-out border border-gray-950`}
-          style={{ boxShadow: "0 0 10px 5px rgba(0,0,0,0.5)" }}
-          src={activeImage}
-          alt="zoom-image"
-          width={500}
-          height={500}
-        />
+        {activeImage && (
+          <Image
+            onClick={(event) => event.stopPropagation()}
+            className={`${
+              activeModal ? "scale-100" : "scale-0"
+            } w-[90%] h-auto sm:w-auto sm:h-[80%] md:h-[90%] object-cover md:w-auto duration-300 ease-in-out border border-gray-950`}
+            style={{ boxShadow: "0 0 10px 5px rgba(0,0,0,0.5)" }}
+            src={activeImage}
+            alt="zoom-image"
+            width={500}
+            height={500}
+          />
+        )}
         <div
           className="p-3 text-white absolute top-2 right-2 md:top-4 md:right-4 cursor-pointer text-2xl md:text-base"
           onClick={() => {

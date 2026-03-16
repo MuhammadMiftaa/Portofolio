@@ -9,9 +9,7 @@ import Marquee from "@/components/ui/marquee";
 import GithubCalendar from "react-github-calendar";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { GlareCard } from "@/components/ui/glare-card";
-import { FetchGithub } from "@/services/github";
 import { FaGithub } from "react-icons/fa";
-import NumberTicker from "@/components/ui/number-ticker";
 import Link from "next/link";
 import useSWR from "swr";
 import { CertificateType } from "@/types/CertificateType";
@@ -57,22 +55,25 @@ export default function AboutLayout() {
     GithubContributionType[]
   >([]);
 
+  const { data: githubData, isLoading: isLoadingGithub } = useSWR(
+    "/api/github",
+    fetcher,
+  );
   useEffect(() => {
-    FetchGithub().then((res) => {
-      const githubData = res.data;
+    if (githubData.data) {
       const githubContributionsArray: GithubContributionType[] = [];
 
       githubContributionsArray.push({
         title: "Total",
         value:
-          githubData.contributionsCollection.contributionCalendar
+          githubData.data.contributionsCollection.contributionCalendar
             .totalContributions,
       });
 
       githubContributionsArray.push({
         title: "This Week",
-        value: githubData.contributionsCollection.contributionCalendar.weeks[
-          githubData.contributionsCollection.contributionCalendar.weeks.length -
+        value: githubData.data.contributionsCollection.contributionCalendar.weeks[
+          githubData.data.contributionsCollection.contributionCalendar.weeks.length -
             1
         ].contributionDays.reduce(
           (acc: number, curr: any) => acc + curr.contributionCount,
@@ -81,7 +82,7 @@ export default function AboutLayout() {
       });
 
       let bestDay = 0;
-      githubData.contributionsCollection.contributionCalendar.weeks.forEach(
+      githubData.data.contributionsCollection.contributionCalendar.weeks.forEach(
         (week: any) => {
           week.contributionDays.forEach((day: any) => {
             if (day.contributionCount > bestDay) {
@@ -95,14 +96,14 @@ export default function AboutLayout() {
       githubContributionsArray.push({
         title: "Average",
         value: Math.ceil(
-          githubData.contributionsCollection.contributionCalendar
+          githubData.data.contributionsCollection.contributionCalendar
             .totalContributions / 365,
         ),
       });
 
       setGithubContributions(githubContributionsArray);
-    });
-  }, []);
+    }
+  }, [githubData]);
   // FETCH DATA GITHUB ⚽
 
   return (
