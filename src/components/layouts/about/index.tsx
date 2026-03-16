@@ -60,7 +60,7 @@ export default function AboutLayout() {
     fetcher,
   );
   useEffect(() => {
-    if (githubData.data) {
+    if (githubData?.data) {
       const githubContributionsArray: GithubContributionType[] = [];
 
       githubContributionsArray.push({

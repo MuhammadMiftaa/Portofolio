@@ -13,8 +13,6 @@ export default function HomeLayout() {
       id="home"
     >
       <div
-        // data-aos="fade-up"
-        // data-aos-duration="2000"
         className="flex flex-col w-full items-center px-20"
       >
         <motion.h1

@@ -42,6 +42,7 @@ export default async function handler(
       query: GithubGraphQLQuery,
     }),
   });
-  
-  res.json(await result.json());
+
+  const json = await result.json();
+  res.json({ data: json.data?.user });
 }
