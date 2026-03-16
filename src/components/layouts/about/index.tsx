@@ -72,13 +72,14 @@ export default function AboutLayout() {
 
       githubContributionsArray.push({
         title: "This Week",
-        value: githubData.data.contributionsCollection.contributionCalendar.weeks[
-          githubData.data.contributionsCollection.contributionCalendar.weeks.length -
-            1
-        ].contributionDays.reduce(
-          (acc: number, curr: any) => acc + curr.contributionCount,
-          0,
-        ),
+        value:
+          githubData.data.contributionsCollection.contributionCalendar.weeks[
+            githubData.data.contributionsCollection.contributionCalendar.weeks
+              .length - 1
+          ].contributionDays.reduce(
+            (acc: number, curr: any) => acc + curr.contributionCount,
+            0,
+          ),
       });
 
       let bestDay = 0;
@@ -135,12 +136,7 @@ export default function AboutLayout() {
             ></Image>
           </ShineBorder>
         </GlareCard>
-        <div
-          data-aos="fade-left"
-          data-aos-delay="300"
-          data-aos-duration="1000"
-          className="relative"
-        >
+        <div className="relative">
           <p className="text-white w-full text-sm sm:text-base md:text-lg text-justify tracking-wide font-urbanist mt-2 md:mt-5">
             I am a Junior Web Developer with expertise in both Frontend and
             Backend development. I specialize in modern technologies like
@@ -177,11 +173,7 @@ export default function AboutLayout() {
           </div>
         </div>
       </div>
-      <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        className="flex flex-col items-center md:items-start"
-      >
+      <div className="flex flex-col items-center md:items-start">
         <div className="flex w-full justify-between items-center  mt-8">
           <AnimatedGradientTextWithoutBorder className="md:ml-[6.5rem]">
             <span
@@ -234,11 +226,7 @@ export default function AboutLayout() {
         </div>
       </div>
       <div className="px-6 sm:px-16 md:px-36">
-        <div
-          data-aos="zoom-in"
-          data-aos-duration="800"
-          className="text-white text-xl sm:text-2xl md:text-3xl font-poppins flex items-center my-3 uppercase font-bold gap-[1px] tracking-wide"
-        >
+        <div className="text-white text-xl sm:text-2xl md:text-3xl font-poppins flex items-center my-3 uppercase font-bold gap-[1px] tracking-wide">
           <h1>Github C</h1>
           <Link href={"https://github.com/MuhammadMiftaa"}>
             <FaGithub className="rotate-45 hover:rotate-0 duration-500" />
@@ -257,19 +245,10 @@ export default function AboutLayout() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
-          <div
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-[100%]"
-          >
+          <div className="text-gray-200 font-light font-poppins bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent p-4 border border-gray-500 rounded-xl w-[100%]">
             <GithubCalendar username="MuhammadMiftaa" />
           </div>
-          <div
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="100"
-            className="flex flex-row md:flex-col bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent border border-gray-500 rounded-xl justify-around items-center w-full content-center"
-          >
+          <div className="flex flex-row md:flex-col bg-gradient-to-t from-[rgba(255,255,255,0.1)] via-transparent to-transparent border border-gray-500 rounded-xl justify-around items-center w-full content-center">
             <CardContainer
               className="flex flex-col items-center cursor-pointer"
               containerClassName="py-4"

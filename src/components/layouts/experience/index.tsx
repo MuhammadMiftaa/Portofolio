@@ -27,7 +27,7 @@ export default function ExperienceLayout() {
       <AnimatedGradientText className="md:ml-36 px-20 md:px-10 py-1 md:py-1.5 mx-auto">
         <span
           className={cn(
-            `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `
+            `text-md sm:text-xl md:text-2xl py-1 font-poppins font-bold inline animate-gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-color-2 to-color-1 `,
           )}
         >
           Experience
@@ -36,9 +36,6 @@ export default function ExperienceLayout() {
       <div className="flex flex-col gap-5 px-6 sm:px-16 md:px-36 mt-10 md:mt-16">
         {experience.map((item, idx) => (
           <div
-            data-aos={(idx + 1) % 2 === 0 ? "fade-up-right" : "fade-up-left"}
-            data-aos-duration="1000"
-            data-aos-delay={((idx + 2) % 2) * 200}
             key={idx}
             className="relative py-4 px-6 flex h-fit w-full flex-col overflow-hidden rounded-lg border border-gray-700 bg-background md:shadow-xl"
           >
@@ -64,8 +61,8 @@ export default function ExperienceLayout() {
                   item.startDate.split(" ")[1].slice(0, 3),
                   item.startDate.split(" ")[2],
                 ].join(" ")}{" "}
-                -
-                {" "}{[
+                -{" "}
+                {[
                   item.endDate.split(" ")[0],
                   item.endDate.split(" ")[1].slice(0, 3),
                   item.endDate.split(" ")[2],

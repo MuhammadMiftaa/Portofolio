@@ -12,9 +12,7 @@ export default function HomeLayout() {
       className="pt-56 pb-24 md:pt-64 flex flex-col w-full md:h-screen"
       id="home"
     >
-      <div
-        className="flex flex-col w-full items-center px-20"
-      >
+      <div className="flex flex-col w-full items-center px-20">
         <motion.h1
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,12 +36,12 @@ export default function HomeLayout() {
         >
           <GradualSpacing
             className="font-display text-center text-2xl sm:text-5xl md:text-7xl font-bold -tracking-[0.2em] sm:-tracking-[0.12em] md:-tracking-widest text-white md:leading-[5rem] text-wrap"
-            text="Muhammad   Miftakul   Salam"
+            text="Muhammad   Mifta"
           />
         </motion.div>
         <NeonGradientCard className="w-full sm:max-w-md md:max-w-sm mt-4 sm:mt-6 md:mt-8 items-center justify-center text-center text-white font-poppins">
           <h1 className="text-xs sm:text-lg md:text-xl text-nowrap py-0.5 px-2 md:p-0">
-            Backend Developer
+            Fullstack Developer
           </h1>
         </NeonGradientCard>
       </div>

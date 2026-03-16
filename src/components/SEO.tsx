@@ -10,11 +10,11 @@ interface SEOProps {
 }
 
 const defaultMeta = {
-  title: "Muhammad Mifta - Backend Developer",
+  title: "Muhammad Mifta - Fullstack Developer",
   description:
-    "Muhammad Mifta - Backend Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies.",
+    "Muhammad Mifta - Fullstack Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies.",
   keywords:
-    "Muhammad Mifta, Backend Developer, Web Developer, React, Next.js, Golang, Portfolio, Software Engineer, Indonesia",
+    "Muhammad Mifta, Fullstack Developer, Web Developer, React, Next.js, Golang, Portfolio, Software Engineer, Indonesia",
   image: "https://miv.best/profile-picture.jpg",
   url: "https://miv.best",
   type: "website",

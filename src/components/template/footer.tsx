@@ -48,7 +48,7 @@ export default function Footer() {
       </h1>
       <h2 className="font-urbanist font-light">
         Created by <span className="text-white font-bold">Muhammad Mifta.</span>{" "}
-        Copyright @ {new Date().getFullYear()}.
+        Copyright &copy; {new Date().getFullYear()}.
       </h2>
     </div>
   );

@@ -10,11 +10,11 @@ export default function Document() {
         <meta name="author" content="Muhammad Mifta" />
         <meta
           name="description"
-          content="Muhammad Mifta - Backend Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies."
+          content="Muhammad Mifta - Fullstack Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies."
         />
         <meta
           name="keywords"
-          content="Muhammad Mifta, Backend Developer, Web Developer, React, Next.js, Golang, Portfolio, Software Engineer"
+          content="Muhammad Mifta, Fullstack Developer, Web Developer, React, Next.js, Golang, Portfolio, Software Engineer"
         />
 
         {/* Open Graph / Facebook */}
@@ -22,11 +22,11 @@ export default function Document() {
         <meta property="og:url" content="https://miv.best/" />
         <meta
           property="og:title"
-          content="Muhammad Mifta - Backend Developer"
+          content="Muhammad Mifta - Fullstack Developer"
         />
         <meta
           property="og:description"
-          content="Backend Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies."
+          content="Fullstack Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies."
         />
         <meta
           property="og:image"
@@ -40,11 +40,11 @@ export default function Document() {
         <meta name="twitter:url" content="https://miv.best/" />
         <meta
           name="twitter:title"
-          content="Muhammad Mifta - Backend Developer"
+          content="Muhammad Mifta - Fullstack Developer"
         />
         <meta
           name="twitter:description"
-          content="Backend Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies."
+          content="Fullstack Developer Portfolio. Experienced in React, Next.js, Golang, and modern web technologies."
         />
         <meta
           name="twitter:image"

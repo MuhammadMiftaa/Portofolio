@@ -37,7 +37,7 @@ export default function ContactLayout() {
         <AnimatedGradientTextWithoutBorder className="">
           <span
             className={cn(
-              `text-3xl sm:text-4xl md:text-5xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              `text-3xl sm:text-4xl md:text-5xl py-1 font-poppins font-bold inline animate-gradient bg-gradient-to-r from-color-1 via-color-2 to-color-1 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
             )}
           >
             Let's Connect
@@ -127,7 +127,11 @@ export default function ContactLayout() {
           value={`MIFTDEV | ${userForm.Subject} from ${userForm.Name} - ${userForm.Email}`}
         />{" "}
         {/* Subject Email */}
-        <input type="hidden" name="_next" value={process.env.NEXT_PUBLIC_APP_URL} />{" "}
+        <input
+          type="hidden"
+          name="_next"
+          value={process.env.NEXT_PUBLIC_APP_URL}
+        />{" "}
         {/* Redirect URL after submission */}
         <input type="text" name="_honey" className="hidden" />{" "}
         {/* Honeypot for spam */}
@@ -163,11 +167,7 @@ const LabelInputContainer = ({
   className?: string;
 }) => {
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-duration="1000"
-      className={cn("flex flex-col space-y-2 w-full", className)}
-    >
+    <div className={cn("flex flex-col space-y-2 w-full", className)}>
       {children}
     </div>
   );
