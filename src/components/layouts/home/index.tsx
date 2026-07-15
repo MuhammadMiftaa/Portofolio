@@ -59,7 +59,7 @@ export const projects = [
   {
     title: "LinkedIn",
     icon: <FaLinkedin className="text-white w-4 h-4 md:w-6 md:h-6" />,
-    link: "https://www.linkedin.com/feed/",
+    link: "https://www.linkedin.com/in/muhammadmifta/",
   },
   {
     title: "Gmail",
